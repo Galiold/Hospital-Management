@@ -10,6 +10,3 @@ cursor = db.cursor()
 cursor.execute("USE Hospital")
 
 db.close()
-
-a = s.foo()
-print(a)
