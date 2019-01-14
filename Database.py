@@ -144,13 +144,13 @@ while True:
         password = input()
 
 
-        sql = " select * from %s where ID= %s and Password = %s"
 
         if username == "admin" and password == "admin":
             manager_login()
         elif username[0] == "d":
-            val = ("Doctors", username, password)
-            print(val[0])
+            sql = " select * from Doctors where ID= %s and Password = %s"
+            val = (username, password,)
+            print(val)
             res = cursor.execute(sql, val)
             if res==0 :
                 print("id or password is not correct !")
@@ -158,7 +158,8 @@ while True:
                 doctor_login()
 
         elif username[0] == "n" :
-            val = ["Nurses", username, password]
+            sql = " select * from Nurses where ID= %s and Password = %s"
+            val = (username, password)
             res = cursor.execute(sql, val)
             if res == 0:
                 print("id or password is not correct !")
@@ -166,7 +167,8 @@ while True:
                 nurse_login()
 
         elif username[0] == "p":
-            val = ["Patients", username, password]
+            sql = " select * from Patients where ID= %s and Password = %s"
+            val = (username, password)
             res = cursor.execute(sql, val)
             if res == 0:
                 print("id or password is not correct !")
@@ -174,7 +176,8 @@ while True:
                 patient_login()
 
         elif username[0] == "l" :
-            val = ["Laboratory", username, password]
+            sql = " select * from Laboratory where ID= %s and Password = %s"
+            val = ( username, password)
             res = cursor.execute(sql, val)
             if res == 0:
                 print("id or password is not correct !")
@@ -182,7 +185,8 @@ while True:
                 laboratory_login()
 
         elif username[0] == "h" :
-            val = ["Pharmacy", username, password]
+            sql = " select * from Pharmacy where ID= %s and Password = %s"
+            val = (username, password)
             res = cursor.execute(sql, val)
             if res == 0:
                 print("id or password is not correct !")
@@ -190,7 +194,8 @@ while True:
                 pharmacy_login()
 
         elif username[0] == "a":
-            val = ["Accountant", username, password]
+            sql = " select * from Accountant where ID= %s and Password = %s"
+            val = (username, password)
             res = cursor.execute(sql, val)
             if res == 0:
                 print("id or password is not correct !")
@@ -198,7 +203,8 @@ while True:
                 accountant_login()
 
         elif username[0] =="r":
-            val = ["Reception", username, password]
+            sql = " select * from Reception where ID= %s and Password = %s"
+            val = (username, password)
             res = cursor.execute(sql, val)
             if res == 0:
                 print("id or password is not correct !")
