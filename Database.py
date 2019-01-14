@@ -40,12 +40,19 @@ def approve(username):
     cursor.execute("SELECT * FROM Registrations WHERE username=%s", username)
     result = cursor.fetchone()
     if result[1] == 'd':
-        cursor.execute("select ID from Doctors order by ID desc ")
+        cursor.execute("select increment from Doctors order by ID desc ")
         last_id = cursor.fetchone()
-        id = 'd'+last_id[0]
+        if last_id is None :
+            id = "d1"
+        else:
+            increment = int(last_id[0])+1
+            id = 'd' + str(increment)
         sql = "insert into Doctors (ID,Email,Phone,Username,Password) values (%s,%s,%s,%s,%s)"
         val = (id,result[2],result[3],result[4],result[5])
         cursor.execute(sql,val)
+        db.commit()
+        cursor.execute("delete from Registrations where username = %s",username)
+        db.commit()
 
 
 # ////////////////////////////////// Login Functions  \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
@@ -73,7 +80,7 @@ def manager_login():
             result = cursor.fetchall()
             print(result)
 
-            print("\n enter the Username that you want to approve or ZERO to exit")
+            print("\n enter the Name that you want to approve or ZERO to exit")
             username = input()
             approve(username)
         elif int(choice) == 2:
@@ -136,55 +143,62 @@ while True:
         print("enter password")
         password = input()
 
-        val = ["Nurses" ,username, password,]
+
         sql = " select * from %s where ID= %s and Password = %s"
 
         if username == "admin" and password == "admin":
             manager_login()
         elif username[0] == "d":
-            val[0]="Doctors"
+            val = ("Doctors", username, password)
+            print(val[0])
             res = cursor.execute(sql, val)
             if res==0 :
                 print("id or password is not correct !")
             else:
                 doctor_login()
+
         elif username[0] == "n" :
-            val[0] = "Nurses"
+            val = ["Nurses", username, password]
             res = cursor.execute(sql, val)
             if res == 0:
                 print("id or password is not correct !")
             else:
                 nurse_login()
+
         elif username[0] == "p":
-            val[0] = "Patients"
+            val = ["Patients", username, password]
             res = cursor.execute(sql, val)
             if res == 0:
                 print("id or password is not correct !")
             else:
                 patient_login()
+
         elif username[0] == "l" :
-            val[0] = "Laboratory"
+            val = ["Laboratory", username, password]
             res = cursor.execute(sql, val)
             if res == 0:
                 print("id or password is not correct !")
             else:
                 laboratory_login()
+
         elif username[0] == "h" :
-            val[0] = "Pharmacy"
+            val = ["Pharmacy", username, password]
             res = cursor.execute(sql, val)
             if res == 0:
                 print("id or password is not correct !")
             else:
                 pharmacy_login()
+
         elif username[0] == "a":
-            val[0] = "Accountant"
+            val = ["Accountant", username, password]
             res = cursor.execute(sql, val)
             if res == 0:
                 print("id or password is not correct !")
             else:
                 accountant_login()
+
         elif username[0] =="r":
-            val[0] = "Reception"
+            val = ["Reception", username, password]
             res = cursor.execute(sql, val)
             if res == 0:
                 print("id or password is not correct !")
