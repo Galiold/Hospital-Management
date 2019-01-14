@@ -1,11 +1,11 @@
 import sys
 import pymysql
 import tkinter
-import Secretary as s
+# import Secretary as s
 
 db = pymysql.connect(host="localhost",
                      user="root",
-                     passwd="")
+                     passwd="Serv3rforDB")
 
 cursor = db.cursor()
 cursor.execute("USE DB_Hospital")
