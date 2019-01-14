@@ -1,7 +1,7 @@
 import sys
 import pymysql
 import tkinter
-# import Secretary as s
+import Doctor
 
 db = pymysql.connect(host="localhost",
                      user="root",
@@ -61,6 +61,7 @@ def doctor_login():
     name = "Arman"  # query to get the name
     print("------------- Doctors Panel ---------------")
     print("welcome dr.%s" % (name,))
+    Doctor.show_doctor_menu()
 
 
 def manager_login():
