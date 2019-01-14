@@ -2,16 +2,18 @@ import sys
 import pymysql
 import tkinter
 import Secretary as s
+import datetime
 
-db = pymysql.connect(host="localhost",
-                     user="root",
-                     passwd="")
+# ///////////////////////////////////// database connection \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+main_db = pymysql.connect(host="localhost",
+                          user="root",
+                          passwd="")
 
-cursor = db.cursor()
-cursor.execute("USE DB_Hospital")
+main_cursor = main_db.cursor()
+main_cursor.execute("USE DB_Hospital")
 
 
-# /////////////////////////////////////// Tools \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+# /////////////////////////////////////// Tools \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
 def add_row(cursor, tablename, rowdict):
     # XXX tablename not sanitized
@@ -37,11 +39,11 @@ def add_row(cursor, tablename, rowdict):
 
 # ////////////////////////////////// Manager Functions \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 def approve(username):
-    cursor.execute("SELECT * FROM Registrations WHERE username=%s", username)
-    result = cursor.fetchone()
+    main_cursor.execute("SELECT * FROM Registrations WHERE username=%s", username)
+    result = main_cursor.fetchone()
     if result[1] == 'd':
-        cursor.execute("select increment from Doctors order by ID desc ")
-        last_id = cursor.fetchone()
+        main_cursor.execute("select increment from Doctors order by ID desc ")
+        last_id = main_cursor.fetchone()
         if last_id is None :
             id = "d1"
         else:
@@ -49,19 +51,42 @@ def approve(username):
             id = 'd' + str(increment)
         sql = "insert into Doctors (ID,Email,Phone,Username,Password) values (%s,%s,%s,%s,%s)"
         val = (id,result[2],result[3],result[4],result[5])
-        cursor.execute(sql,val)
-        db.commit()
-        cursor.execute("delete from Registrations where username = %s",username)
-        db.commit()
+        main_cursor.execute(sql, val)
+        main_db.commit()
+        main_cursor.execute("delete from Registrations where username = %s", username)
+        main_db.commit()
 
 
 # ////////////////////////////////// Login Functions  \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
-def doctor_login():
-    name = "Arman"  # query to get the name
-    print("------------- Doctors Panel ---------------")
-    print("welcome dr.%s" % (name,))
+def doctor_login(id):
+    while True:
+        name = "Arman"  # query to get the name
+        print("------------- Doctors Panel ---------------")
+        print('''
+        1. complete your profile
+        2. exit
+        ''')
+        choice = input()
 
+        if int(choice)==1:
+            print("please enter the following informations :")
+            year = int(input('Enter a year'))
+            month = int(input('Enter a month'))
+            day = int(input('Enter a day'))
+            date1 = datetime.date(year, month, day)
+
+            Address= input("Address : ")
+            PostalCode= input("PostalCode : ")
+            DoB = date1
+            sex = input("sex : ")
+            height= input("height : ")
+            weight = input("weight : ")
+
+            main_cursor.execute("update Doctors set Address=%s , PostalCode=%s , DoB = %s , Sex=%s , Height=%s , Weight=%s where  ID = %s",(Address,PostalCode,DoB,sex,height,weight,id))
+            main_db.commit()
+        elif int(choice)==2:
+            break
 
 def manager_login():
     while True:
@@ -76,8 +101,8 @@ def manager_login():
 
         if int(choice) == 1:
             sql = "SELECT email,phone,username FROM Registrations"
-            cursor.execute(sql)
-            result = cursor.fetchall()
+            main_cursor.execute(sql)
+            result = main_cursor.fetchall()
             print(result)
 
             print("\n enter the Name that you want to approve or ZERO to exit")
@@ -104,6 +129,8 @@ def accountant_login():
 def reception_login():
     print()
 
+
+# /////////////////////////////////// main program and menu \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 while True:
 
     print("----- Menu -----")
@@ -134,8 +161,8 @@ while True:
             'username': input(),
             'password': input(),
         }
-        add_row(cursor, "Registrations", instance_insert)
-        db.commit()
+        add_row(main_cursor, "Registrations", instance_insert)
+        main_db.commit()
 
     if int(choice) == 2:
         print("enter id")
@@ -151,16 +178,16 @@ while True:
             sql = " select * from Doctors where ID= %s and Password = %s"
             val = (username, password,)
             print(val)
-            res = cursor.execute(sql, val)
+            res = main_cursor.execute(sql, val)
             if res==0 :
                 print("id or password is not correct !")
             else:
-                doctor_login()
+                doctor_login(username)
 
         elif username[0] == "n" :
             sql = " select * from Nurses where ID= %s and Password = %s"
             val = (username, password)
-            res = cursor.execute(sql, val)
+            res = main_cursor.execute(sql, val)
             if res == 0:
                 print("id or password is not correct !")
             else:
@@ -169,7 +196,7 @@ while True:
         elif username[0] == "p":
             sql = " select * from Patients where ID= %s and Password = %s"
             val = (username, password)
-            res = cursor.execute(sql, val)
+            res = main_cursor.execute(sql, val)
             if res == 0:
                 print("id or password is not correct !")
             else:
@@ -178,7 +205,7 @@ while True:
         elif username[0] == "l" :
             sql = " select * from Laboratory where ID= %s and Password = %s"
             val = ( username, password)
-            res = cursor.execute(sql, val)
+            res = main_cursor.execute(sql, val)
             if res == 0:
                 print("id or password is not correct !")
             else:
@@ -187,7 +214,7 @@ while True:
         elif username[0] == "h" :
             sql = " select * from Pharmacy where ID= %s and Password = %s"
             val = (username, password)
-            res = cursor.execute(sql, val)
+            res = main_cursor.execute(sql, val)
             if res == 0:
                 print("id or password is not correct !")
             else:
@@ -196,7 +223,7 @@ while True:
         elif username[0] == "a":
             sql = " select * from Accountant where ID= %s and Password = %s"
             val = (username, password)
-            res = cursor.execute(sql, val)
+            res = main_cursor.execute(sql, val)
             if res == 0:
                 print("id or password is not correct !")
             else:
@@ -205,19 +232,11 @@ while True:
         elif username[0] =="r":
             sql = " select * from Reception where ID= %s and Password = %s"
             val = (username, password)
-            res = cursor.execute(sql, val)
+            res = main_cursor.execute(sql, val)
             if res == 0:
                 print("id or password is not correct !")
             else:
                 reception_login()
 
 
-
-
-        else:
-            if res == 0:
-                print("Username or password is not correct")
-            else:
-                doctor_login()
-
-db.close()
+main_db.close()
