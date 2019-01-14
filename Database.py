@@ -3,9 +3,10 @@ import pymysql
 import tkinter
 import Doctor
 
-db = pymysql.connect(host="localhost",
+db = pymysql.connect(host="159.89.45.112",
+                     port=3306,
                      user="root",
-                     passwd="Serv3rforDB")
+                     passwd="cb3eac4fa4776281fd60e9ab3d34cc2ac32b327e38ffa77c")
 
 cursor = db.cursor()
 cursor.execute("USE DB_Hospital")
@@ -61,6 +62,7 @@ def doctor_login():
     name = "Arman"  # query to get the name
     print("------------- Doctors Panel ---------------")
     print("welcome dr.%s" % (name,))
+    Doctor.initialize()
     Doctor.show_doctor_menu()
 
 
