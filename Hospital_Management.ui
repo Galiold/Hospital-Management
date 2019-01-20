@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1289</width>
+    <width>901</width>
     <height>813</height>
    </rect>
   </property>
@@ -110,10 +110,17 @@ border-radius: 10px</string>
               </font>
              </property>
              <property name="styleSheet">
-              <string notr="true">border: 2px solid #fff;
-background-color: #96dae4;
-color: #fff
-</string>
+              <string notr="true">QPushButton#login
+{
+	border: 2px solid #fff;
+	background-color: #96dae4;
+	color: #fff;
+}
+
+QPushButton:hover#login
+{
+	background-color: #000;
+}</string>
              </property>
              <property name="text">
               <string>Login</string>
@@ -159,7 +166,7 @@ color: #fff
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1289</width>
+     <width>901</width>
      <height>22</height>
     </rect>
    </property>
