@@ -5,6 +5,9 @@ import tkinter
 import datetime
 import smtplib
 import doctor
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
+
 
 # ///////////////////////////////////// database connection \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
@@ -113,6 +116,67 @@ def send_mail(id: object, password: object) -> object:
     server.sendmail("holmes_sh98@yahoo.com", "goldani.ali@aol.com", msg)
     print(4)
     server.quit()
+
+    # HTML Mail
+#     sender = "holmes_sh98@yahoo.com"
+#     receiver = "goldani.ali@aol.com"
+#
+#     msg = MIMEMultipart('alternative')
+#     msg['Subject'] = "Registration Confirmed!"
+#     msg['From'] = sender
+#     msg['To'] = receiver
+#
+#     msg.preamble = "Your id is ", id, "and your password is:", password, " !"
+#     html = """/
+#     <head>
+#     <style>
+#         .dialog{
+#             width: 500px;
+#             height: 200px;
+#             background-color: darkblue;
+#             border-radius: 10px;
+#             box-shadow: 5px 5px  20px gray, -5px -5px 20px gray;
+#             margin: auto;
+#             position: absolute;
+#             top: 50%;
+#             left: 50%;
+#             margin-right: -50%;
+#             transform: translate(-50%, -50%);
+#             padding: 0px;
+#         }
+#         .dialog p{
+#             font-family: Futura;
+#             color: white;
+#             position: absolute;
+#             top: 45%;
+#             left: 50%;
+#             margin-right: -50%;
+#             transform: translate(-50%, -50%)
+#         }
+#     </style>
+# </head>
+# <body>
+#     <div class="dialog">
+#         <p align="center">Your id is<br><id>id</id><br>and your password is<br><passwword>password</passwword></p>
+#     </div>
+# </body>
+# </html>
+#     """
+#
+#     html_body = MIMEText(html, 'html')
+#
+#     msg.attach(html_body)
+#
+#     print(0)
+#     server = smtplib.SMTP('smtp.mail.yahoo.com', 587)
+#     print(1)
+#     server.starttls()
+#     print(2)
+#     server.login("holmes_sh98@yahoo.com", "H0lmesofPast")
+#     print(3)
+#     server.sendmail(sender, [receiver], msg.as_string())
+#     print(4)
+#     server.quit()
 
 
 # ////////////////////////////////// approvals \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
@@ -429,6 +493,7 @@ while True:
 
         if username == "admin" and password == "admin":
             manager_login()
+
         elif username[0] == "d":
             sql = " select * from Doctors where ID= %s and Password = %s"
             val = (username, password,)
