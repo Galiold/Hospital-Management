@@ -1,4 +1,3 @@
-
+# Improvements
 1. change "username" to "name"
-2. email
-3 .
+2. email **[*DONE*]**
