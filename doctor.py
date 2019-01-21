@@ -25,4 +25,5 @@ def show_drug_usage_history(cursor):
 
 
 def send_private_message():
+    print ("Hello")
     pass
