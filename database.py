@@ -17,46 +17,46 @@ from email.mime.text import MIMEText
 #                           user="root",
 #                           passwd="cb3eac4fa4776281fd60e9ab3d34cc2ac32b327e38ffa77c")
 
-main_db = pymysql.connect(host="localhost",
-                          user="root",
-                          passwd="Serv3rforDB")
-
-main_cursor = main_db.cursor()
-main_cursor.execute("USE DB_Hospital")
-
-
-# ----------------------- ++ doctor ++ -----------------------------
-def database_doctor():
-    doctor_db = pymysql.connect(host="localhost",
-                                user="root",
-                                passwd="Serv3rforDB")
-    doctor_cursor = doctor_db.cursor()
-    doctor_cursor.execute("USE DB_Hospital")
-    return doctor_db
-
+# main_db = pymysql.connect(host="localhost",
+#                           user="root",
+#                           passwd="Serv3rforDB")
+#
+# main_cursor = main_db.cursor()
+# main_cursor.execute("USE DB_Hospital")
+#
+#
+# # ----------------------- ++ doctor ++ -----------------------------
+# def database_doctor():
+#     doctor_db = pymysql.connect(host="localhost",
+#                                 user="root",
+#                                 passwd="Serv3rforDB")
+#     doctor_cursor = doctor_db.cursor()
+#     doctor_cursor.execute("USE DB_Hospital")
+#     return doctor_db
+#
 
 # /////////////////////////////////////// Tools \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
-def add_row(cursor, tablename, rowdict):
-    # XXX tablename not sanitized
-    # XXX test for allowed keys is case-sensitive
-
-    # filter out keys that are not column names
-    cursor.execute("describe %s" % tablename)
-    allowed_keys = set(row[0] for row in cursor.fetchall())
-    keys = allowed_keys.intersection(rowdict)
-
-    # if len(rowdict) > len(keys):
-    #     unknown_keys = set(rowdict) - allowed_keys
-    #     print >> sys.stderr, "skipping keys:", ", ".join(unknown_keys)
-
-    columns = ", ".join(keys)
-    values_template = ", ".join(["%s"] * len(keys))
-
-    sql = "insert into %s (%s) values (%s)" % (
-        tablename, columns, values_template)
-    values = tuple(rowdict[key] for key in keys)
-    cursor.execute(sql, values)
+# def add_row(cursor, tablename, rowdict):
+#     # XXX tablename not sanitized
+#     # XXX test for allowed keys is case-sensitive
+#
+#     # filter out keys that are not column names
+#     cursor.execute("describe %s" % tablename)
+#     allowed_keys = set(row[0] for row in cursor.fetchall())
+#     keys = allowed_keys.intersection(rowdict)
+#
+#     # if len(rowdict) > len(keys):
+#     #     unknown_keys = set(rowdict) - allowed_keys
+#     #     print >> sys.stderr, "skipping keys:", ", ".join(unknown_keys)
+#
+#     columns = ", ".join(keys)
+#     values_template = ", ".join(["%s"] * len(keys))
+#
+#     sql = "insert into %s (%s) values (%s)" % (
+#         tablename, columns, values_template)
+#     values = tuple(rowdict[key] for key in keys)
+#     cursor.execute(sql, values)
 
 
 def profile_update(table, id):
@@ -79,29 +79,29 @@ def profile_update(table, id):
     main_db.commit()
 
 
-def register():
-    print("enter in the following order : role - email - phone - username - password")
-    print('''
-            Roles :
-            Doctor ---> d
-            Nurse  ---> n
-            Patient---> p
-            Lab    ---> l
-            Pharmacy ---> ph
-            Accountant ---> a
-            Reception ---> r
-            ''')
-    instance_insert = {
-        # sql column    variable value
-        'role': input(),
-        'email': input(),
-        'phone': input(),
-        'username': input(),
-        'password': input(),
-    }
-    add_row(main_cursor, "Registrations", instance_insert)
-    main_db.commit()
-    return instance_insert["email"]
+# # def register():
+# #     print("enter in the following order : role - email - phone - username - password")
+# #     print('''
+# #             Roles :
+# #             Doctor ---> d
+# #             Nurse  ---> n
+# #             Patient---> p
+# #             Lab    ---> l
+# #             Pharmacy ---> ph
+# #             Accountant ---> a
+# #             Reception ---> r
+# #             ''')
+# #     instance_insert = {
+# #         # sql column    variable value
+# #         'role': input(),
+# #         'email': input(),
+# #         'phone': input(),
+# #         'username': input(),
+# #         'password': input(),
+#     }
+#     add_row(main_cursor, "Registrations", instance_insert)
+#     main_db.commit()
+#     return instance_insert["email"]
 
 
 def send_mail(id: object, password: object) -> object:

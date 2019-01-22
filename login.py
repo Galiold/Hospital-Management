@@ -1,31 +1,38 @@
 import user_management
-
+import manager
 
 admin_db = user_management.database_admin()
 admin_cursor = admin_db.cursor()
 
 
-def manager_login():
-    while True:
-        name = "Arman"  # query to get the name
-        print("------------- Managers Panel ---------------")
-        print("welcome %s \n" % (name,))
-        print('''
-        1. list of unapproved registrations
-        2, create account for other users
-        3.exit
-        ''')
-        choice = input()
+def manager_login(ui):
+    sql = "SELECT email,phone,username FROM Registrations"
+    admin_cursor.execute(sql)
+    peding_list = admin_cursor.fetchall()
+    manager.fill_pending_user_table(peding_list, ui)
+    ui.PageStack.setCurrentIndex(2)
 
-        # if int(choice) == 1:
-        #     sql = "SELECT email,phone,username FROM Registrations"
-        #     admin_cursor.execute(sql)
-        #     result = admin_cursor.fetchall()
-        #     print(result)
-        #
-        #     print("\n enter the email that you want to approve or ZERO to exit")
-        #     email = input()
-        #     approve(email)
+
+    # while True:
+    #     name = "Arman"  # query to get the name
+    #     print("------------- Managers Panel ---------------")
+    #     print("welcome %s \n" % (name,))
+    #     print('''
+    #     1. list of unapproved registrations
+    #     2, create account for other users
+    #     3.exit
+    #     ''')
+    #     choice = input()
+    #
+    #     # if int(choice) == 1:
+    #     #     sql = "SELECT email,phone,username FROM Registrations"
+    #     #     admin_cursor.execute(sql)
+    #     #     result = admin_cursor.fetchall()
+    #     #     print(result)
+    #     #
+    #     #     print("\n enter the email that you want to approve or ZERO to exit")
+    #     #     email = input()
+    #     #     approve(email)
         # elif int(choice) == 2:
         #     email = register()
         #     approve(email)
@@ -156,7 +163,7 @@ def reception_login():
 
 
 
-def login(user, passwd):
+def login(user, passwd, ui):
 
     print("enter id")
     username = user
@@ -164,7 +171,7 @@ def login(user, passwd):
     password = passwd
 
     if username == "admin" and password == "admin":
-        manager_login()
+        manager_login(ui)
 
     elif username[0] == "d":
         sql = " select * from Doctors where ID= %s and Password = %s"
