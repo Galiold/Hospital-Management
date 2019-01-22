@@ -11,7 +11,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(953, 813)
+        MainWindow.resize(1181, 1033)
         MainWindow.setAutoFillBackground(False)
         MainWindow.setStyleSheet("background-color: #303841;")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
@@ -84,6 +84,17 @@ class Ui_MainWindow(object):
         self.password.setTabChangesFocus(True)
         self.password.setObjectName("password")
         self.verticalLayout_2.addWidget(self.password)
+        self.passwd_forgot_btn = QtWidgets.QPushButton(self.frame)
+        self.passwd_forgot_btn.setStyleSheet("QPushButton\n"
+"{\n"
+"    color: white;\n"
+"}\n"
+"QPushButton:hover\n"
+"{\n"
+"    color: blue;\n"
+"}")
+        self.passwd_forgot_btn.setObjectName("passwd_forgot_btn")
+        self.verticalLayout_2.addWidget(self.passwd_forgot_btn)
         spacerItem1 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
         self.verticalLayout_2.addItem(spacerItem1)
         self.login_btn = QtWidgets.QPushButton(self.frame)
@@ -362,17 +373,17 @@ class Ui_MainWindow(object):
         self.label_5.setStyleSheet("color: white;")
         self.label_5.setObjectName("label_5")
         self.verticalLayout_8.addWidget(self.label_5, 0, QtCore.Qt.AlignHCenter)
-        self.textEdit = QtWidgets.QTextEdit(self.frame_3)
+        self.selected_email = QtWidgets.QTextEdit(self.frame_3)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.textEdit.sizePolicy().hasHeightForWidth())
-        self.textEdit.setSizePolicy(sizePolicy)
-        self.textEdit.setMinimumSize(QtCore.QSize(200, 50))
-        self.textEdit.setMaximumSize(QtCore.QSize(200, 50))
-        self.textEdit.setStyleSheet("border: 2px solid white;")
-        self.textEdit.setObjectName("textEdit")
-        self.verticalLayout_8.addWidget(self.textEdit, 0, QtCore.Qt.AlignHCenter)
+        sizePolicy.setHeightForWidth(self.selected_email.sizePolicy().hasHeightForWidth())
+        self.selected_email.setSizePolicy(sizePolicy)
+        self.selected_email.setMinimumSize(QtCore.QSize(200, 50))
+        self.selected_email.setMaximumSize(QtCore.QSize(200, 50))
+        self.selected_email.setStyleSheet("border: 2px solid white;")
+        self.selected_email.setObjectName("selected_email")
+        self.verticalLayout_8.addWidget(self.selected_email, 0, QtCore.Qt.AlignHCenter)
         self.approve_user_btn = QtWidgets.QPushButton(self.frame_3)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
@@ -444,15 +455,78 @@ class Ui_MainWindow(object):
         self.horizontalLayout.addWidget(self.frame_3)
         self.gridLayout_5.addLayout(self.horizontalLayout, 0, 0, 1, 1)
         self.PageStack.addWidget(self.page)
+        self.page_2 = QtWidgets.QWidget()
+        self.page_2.setObjectName("page_2")
+        self.gridLayout_7 = QtWidgets.QGridLayout(self.page_2)
+        self.gridLayout_7.setObjectName("gridLayout_7")
+        self.gridLayout_6 = QtWidgets.QGridLayout()
+        self.gridLayout_6.setObjectName("gridLayout_6")
+        self.frame_4 = QtWidgets.QFrame(self.page_2)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.frame_4.sizePolicy().hasHeightForWidth())
+        self.frame_4.setSizePolicy(sizePolicy)
+        self.frame_4.setMinimumSize(QtCore.QSize(300, 200))
+        self.frame_4.setStyleSheet("background-color: #11999e;\n"
+"border-radius: 10px")
+        self.frame_4.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_4.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_4.setObjectName("frame_4")
+        self.verticalLayout_9 = QtWidgets.QVBoxLayout(self.frame_4)
+        self.verticalLayout_9.setObjectName("verticalLayout_9")
+        self.verticalLayout_5 = QtWidgets.QVBoxLayout()
+        self.verticalLayout_5.setContentsMargins(-1, 10, -1, 10)
+        self.verticalLayout_5.setObjectName("verticalLayout_5")
+        self.label_7 = QtWidgets.QLabel(self.frame_4)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(200)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.label_7.sizePolicy().hasHeightForWidth())
+        self.label_7.setSizePolicy(sizePolicy)
+        self.label_7.setMinimumSize(QtCore.QSize(200, 0))
+        self.label_7.setStyleSheet("color: white;")
+        self.label_7.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_7.setWordWrap(True)
+        self.label_7.setObjectName("label_7")
+        self.verticalLayout_5.addWidget(self.label_7, 0, QtCore.Qt.AlignHCenter)
+        self.recovery_email = QtWidgets.QTextEdit(self.frame_4)
+        self.recovery_email.setMinimumSize(QtCore.QSize(200, 50))
+        self.recovery_email.setMaximumSize(QtCore.QSize(200, 50))
+        self.recovery_email.setStyleSheet("border: 2px solid #fff;\n"
+"color: #fff; margin:0;")
+        self.recovery_email.setObjectName("recovery_email")
+        self.verticalLayout_5.addWidget(self.recovery_email, 0, QtCore.Qt.AlignHCenter)
+        self.recovery_submit_btn = QtWidgets.QPushButton(self.frame_4)
+        self.recovery_submit_btn.setMinimumSize(QtCore.QSize(200, 50))
+        self.recovery_submit_btn.setMaximumSize(QtCore.QSize(200, 50))
+        self.recovery_submit_btn.setStyleSheet("QPushButton\n"
+"{\n"
+"    border: 2px solid #fff;\n"
+"    background-color: #96dae4;\n"
+"    color: #fff;\n"
+"}\n"
+"\n"
+"QPushButton:hover\n"
+"{\n"
+"    background-color: #FFF;\n"
+"    color: black;\n"
+"}")
+        self.recovery_submit_btn.setObjectName("recovery_submit_btn")
+        self.verticalLayout_5.addWidget(self.recovery_submit_btn, 0, QtCore.Qt.AlignHCenter)
+        self.verticalLayout_9.addLayout(self.verticalLayout_5)
+        self.gridLayout_6.addWidget(self.frame_4, 0, 0, 1, 1)
+        self.gridLayout_7.addLayout(self.gridLayout_6, 0, 0, 1, 1)
+        self.PageStack.addWidget(self.page_2)
         self.gridLayout.addWidget(self.PageStack, 0, 0, 1, 1)
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 953, 22))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 1181, 22))
         self.menubar.setObjectName("menubar")
         MainWindow.setMenuBar(self.menubar)
 
         self.retranslateUi(MainWindow)
-        self.PageStack.setCurrentIndex(2)
+        self.PageStack.setCurrentIndex(0)
         self.selected_role.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
@@ -461,6 +535,7 @@ class Ui_MainWindow(object):
         MainWindow.setWindowTitle(_translate("MainWindow", "Login"))
         self.user_lbl.setText(_translate("MainWindow", "Username"))
         self.pass_lbl.setText(_translate("MainWindow", "Password"))
+        self.passwd_forgot_btn.setText(_translate("MainWindow", "Forgot Password?"))
         self.login_btn.setText(_translate("MainWindow", "Login"))
         self.signup_btn.setText(_translate("MainWindow", "New here? Sign up!"))
         self.register_lbl.setText(_translate("MainWindow", "Register"))
@@ -483,4 +558,6 @@ class Ui_MainWindow(object):
         self.approve_user_btn.setText(_translate("MainWindow", "Approve User"))
         self.delete_user_btn.setText(_translate("MainWindow", "Delete User"))
         self.add_user_btn.setText(_translate("MainWindow", "Add New User"))
+        self.label_7.setText(_translate("MainWindow", "Enter your email here, we will send you a new password."))
+        self.recovery_submit_btn.setText(_translate("MainWindow", "Submit"))
 

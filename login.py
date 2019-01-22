@@ -1,3 +1,5 @@
+import smtplib
+
 import user_management
 import manager
 
@@ -6,39 +8,8 @@ admin_cursor = admin_db.cursor()
 
 
 def manager_login(ui):
-    sql = "SELECT email,phone,username FROM Registrations"
-    admin_cursor.execute(sql)
-    peding_list = admin_cursor.fetchall()
-    manager.fill_pending_user_table(peding_list, ui)
+    manager.fill_pending_user_table(ui)
     ui.PageStack.setCurrentIndex(2)
-
-
-    # while True:
-    #     name = "Arman"  # query to get the name
-    #     print("------------- Managers Panel ---------------")
-    #     print("welcome %s \n" % (name,))
-    #     print('''
-    #     1. list of unapproved registrations
-    #     2, create account for other users
-    #     3.exit
-    #     ''')
-    #     choice = input()
-    #
-    #     # if int(choice) == 1:
-    #     #     sql = "SELECT email,phone,username FROM Registrations"
-    #     #     admin_cursor.execute(sql)
-    #     #     result = admin_cursor.fetchall()
-    #     #     print(result)
-    #     #
-    #     #     print("\n enter the email that you want to approve or ZERO to exit")
-    #     #     email = input()
-    #     #     approve(email)
-        # elif int(choice) == 2:
-        #     email = register()
-        #     approve(email)
-        # elif int(choice) == 3:
-        #     break
-
 
 def doctor_login(id):
     doctor_db = user_management.database_doctor()
@@ -236,3 +207,56 @@ def login(user, passwd, ui):
             print("id or password is not correct !")
         else:
             reception_login()
+
+
+def forgot_password(email):
+
+    sql = "select Password FROM Doctors where Email = %s"
+    res = admin_cursor.execute(sql, email)
+    if res > 0:
+        result = admin_cursor.fetchone()
+        password_mail(result)
+
+    sql = "select Password FROM Nurses where Email = %s"
+    res = admin_cursor.execute(sql, email)
+    if res > 0:
+        result = admin_cursor.fetchone()
+        password_mail(result)
+
+    sql = "select Password FROM Accountant where Email = %s"
+    res = admin_cursor.execute(sql, email)
+    if res > 0 :
+        result = admin_cursor.fetchone()
+        password_mail(result)
+
+    sql = "select Password FROM Reception where Email = %s"
+    res = admin_cursor.execute(sql, email)
+    if res>0 :
+        result = admin_cursor.fetchone()
+        password_mail(result)
+
+    sql = "select Password FROM Laboratory where Email = %s"
+    res = admin_cursor.execute(sql, email)
+    if res>0 :
+        result = admin_cursor.fetchone()
+        password_mail(result)
+
+    sql = "select Password FROM Pharmacy where Email = %s"
+    res = admin_cursor.execute(sql, email)
+    if res>0 :
+        result = admin_cursor.fetchone()
+        password_mail(result)
+
+    sql = "select Password FROM Patients where Email = %s"
+    res = admin_cursor.execute(sql, email)
+    if res>0 :
+        result = admin_cursor.fetchone()
+        password_mail(result)
+
+def password_mail(password):
+    server = smtplib.SMTP('smtp.mail.yahoo.com', 587)
+    server.starttls()
+    server.login("holmes_sh98@yahoo.com", "H0lmesofPast")
+    msg = "\n your password is : %s ! \n" % (password)
+    server.sendmail("holmes_sh98@yahoo.com", "goldani.ali@aol.com", msg)
+    server.quit()
