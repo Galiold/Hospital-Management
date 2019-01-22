@@ -7,8 +7,6 @@
 # WARNING! All changes made in this file will be lost!
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-from functools import partial
-
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -30,21 +28,63 @@ class Ui_MainWindow(object):
         self.frame = QtWidgets.QFrame(self.centralwidget)
         self.frame.setMinimumSize(QtCore.QSize(300, 500))
         self.frame.setStyleSheet("background-color: #11999e;\n"
-                                 "border-radius: 10px")
+"border-radius: 10px")
         self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame.setObjectName("frame")
         self.gridLayout_3 = QtWidgets.QGridLayout(self.frame)
         self.gridLayout_3.setObjectName("gridLayout_3")
-        self.formLayout_2 = QtWidgets.QFormLayout()
-        self.formLayout_2.setLabelAlignment(QtCore.Qt.AlignCenter)
-        self.formLayout_2.setFormAlignment(QtCore.Qt.AlignBottom | QtCore.Qt.AlignHCenter)
-        self.formLayout_2.setContentsMargins(10, 10, 10, 10)
-        self.formLayout_2.setObjectName("formLayout_2")
-        spacerItem = QtWidgets.QSpacerItem(20, 20, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
-        self.formLayout_2.setItem(2, QtWidgets.QFormLayout.LabelRole, spacerItem)
-        self.login = QtWidgets.QPushButton(self.frame)
-        self.login.setMinimumSize(QtCore.QSize(200, 50))
+        self.verticalLayout_2 = QtWidgets.QVBoxLayout()
+        self.verticalLayout_2.setSizeConstraint(QtWidgets.QLayout.SetDefaultConstraint)
+        self.verticalLayout_2.setContentsMargins(10, 50, 10, 45)
+        self.verticalLayout_2.setSpacing(0)
+        self.verticalLayout_2.setObjectName("verticalLayout_2")
+        spacerItem = QtWidgets.QSpacerItem(20, 150, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed)
+        self.verticalLayout_2.addItem(spacerItem)
+        self.user_lbl = QtWidgets.QLabel(self.frame)
+        self.user_lbl.setMaximumSize(QtCore.QSize(1000000, 20))
+        self.user_lbl.setStyleSheet("color: white;")
+        self.user_lbl.setObjectName("user_lbl")
+        self.verticalLayout_2.addWidget(self.user_lbl)
+        self.username = QtWidgets.QTextEdit(self.frame)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.username.sizePolicy().hasHeightForWidth())
+        self.username.setSizePolicy(sizePolicy)
+        self.username.setMinimumSize(QtCore.QSize(200, 50))
+        self.username.setMaximumSize(QtCore.QSize(10000000, 50))
+        self.username.setStyleSheet("border: 2px solid #fff;\n"
+"color: #fff; margin:0;")
+        self.username.setObjectName("username")
+        self.verticalLayout_2.addWidget(self.username)
+        self.pass_lbl = QtWidgets.QLabel(self.frame)
+        self.pass_lbl.setMinimumSize(QtCore.QSize(10, 10))
+        self.pass_lbl.setMaximumSize(QtCore.QSize(1000000, 20))
+        self.pass_lbl.setStyleSheet("margin-top: 10px; margin-bottom:0; color: white; padding: 0px;")
+        self.pass_lbl.setObjectName("pass_lbl")
+        self.verticalLayout_2.addWidget(self.pass_lbl)
+        self.password = QtWidgets.QTextEdit(self.frame)
+        self.password.setEnabled(True)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.password.sizePolicy().hasHeightForWidth())
+        self.password.setSizePolicy(sizePolicy)
+        self.password.setMinimumSize(QtCore.QSize(200, 50))
+        self.password.setMaximumSize(QtCore.QSize(100000, 50))
+        self.password.setStyleSheet("border: 2px solid #fff;\n"
+"color: #fff; margin:0;")
+        self.password.setInputMethodHints(QtCore.Qt.ImhNone)
+        self.password.setObjectName("password")
+        self.verticalLayout_2.addWidget(self.password, 0, QtCore.Qt.AlignHCenter|QtCore.Qt.AlignVCenter)
+        self.login_btn = QtWidgets.QPushButton(self.frame)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.login_btn.sizePolicy().hasHeightForWidth())
+        self.login_btn.setSizePolicy(sizePolicy)
+        self.login_btn.setMinimumSize(QtCore.QSize(200, 50))
         font = QtGui.QFont()
         font.setFamily("Calibri")
         font.setPointSize(18)
@@ -53,31 +93,34 @@ class Ui_MainWindow(object):
         font.setUnderline(False)
         font.setWeight(50)
         font.setKerning(True)
-        self.login.setFont(font)
-        self.login.setStyleSheet("QPushButton#login\n"
-                                 "{\n"
-                                 "    border: 2px solid #fff;\n"
-                                 "    background-color: #96dae4;\n"
-                                 "    color: #fff;\n"
-                                 "}\n"
-                                 "\n"
-                                 "QPushButton:hover#login\n"
-                                 "{\n"
-                                 "    background-color: #FFF;\n"
-                                 "    color: black;\n"
-                                 "}")
-        self.login.setObjectName("login")
-        self.formLayout_2.setWidget(1, QtWidgets.QFormLayout.LabelRole, self.login)
-        self.textEdit = QtWidgets.QTextEdit(self.frame)
-        self.textEdit.setMinimumSize(QtCore.QSize(200, 50))
-        self.textEdit.setMaximumSize(QtCore.QSize(200, 50))
-        self.textEdit.setStyleSheet("border: 2px solid #fff;\n"
-                                    "color: #fff;\n"
-                                    "")
-        self.textEdit.setInputMethodHints(QtCore.Qt.ImhNone)
-        self.textEdit.setObjectName("textEdit")
-        self.formLayout_2.setWidget(0, QtWidgets.QFormLayout.LabelRole, self.textEdit)
-        self.gridLayout_3.addLayout(self.formLayout_2, 0, 0, 1, 1)
+        self.login_btn.setFont(font)
+        self.login_btn.setStyleSheet("QPushButton#login_btn\n"
+"{\n"
+"    border: 2px solid #fff;\n"
+"    background-color: #96dae4;\n"
+"    color: #fff;\n"
+"}\n"
+"\n"
+"QPushButton:hover#login_btn\n"
+"{\n"
+"    background-color: #FFF;\n"
+"    color: black;\n"
+"}")
+        self.login_btn.setObjectName("login_btn")
+        self.verticalLayout_2.addWidget(self.login_btn, 0, QtCore.Qt.AlignVCenter)
+        self.signup_btn = QtWidgets.QPushButton(self.frame)
+        self.signup_btn.setMaximumSize(QtCore.QSize(120, 16777215))
+        self.signup_btn.setStyleSheet("QPushButton\n"
+"{\n"
+"    color: white;\n"
+"}\n"
+"QPushButton:hover\n"
+"{\n"
+"    color: blue;\n"
+"}")
+        self.signup_btn.setObjectName("signup_btn")
+        self.verticalLayout_2.addWidget(self.signup_btn, 0, QtCore.Qt.AlignHCenter)
+        self.gridLayout_3.addLayout(self.verticalLayout_2, 0, 0, 1, 1)
         self.formLayout.setWidget(0, QtWidgets.QFormLayout.FieldRole, self.frame)
         self.gridLayout_2.addLayout(self.formLayout, 0, 0, 1, 1)
         MainWindow.setCentralWidget(self.centralwidget)
@@ -92,7 +135,8 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "Login"))
-        self.login.setText(_translate("MainWindow", "Login"))
-
-
+        self.user_lbl.setText(_translate("MainWindow", "Username"))
+        self.pass_lbl.setText(_translate("MainWindow", "Password"))
+        self.login_btn.setText(_translate("MainWindow", "Login"))
+        self.signup_btn.setText(_translate("MainWindow", "New here? Sign up!"))
 
