@@ -8,6 +8,7 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
+
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
@@ -28,7 +29,7 @@ class Ui_MainWindow(object):
         self.frame = QtWidgets.QFrame(self.centralwidget)
         self.frame.setMinimumSize(QtCore.QSize(300, 500))
         self.frame.setStyleSheet("background-color: #11999e;\n"
-"border-radius: 10px")
+                                 "border-radius: 10px")
         self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame.setObjectName("frame")
@@ -55,7 +56,7 @@ class Ui_MainWindow(object):
         self.username.setMinimumSize(QtCore.QSize(200, 50))
         self.username.setMaximumSize(QtCore.QSize(10000000, 50))
         self.username.setStyleSheet("border: 2px solid #fff;\n"
-"color: #fff; margin:0;")
+                                    "color: #fff; margin:0;")
         self.username.setObjectName("username")
         self.verticalLayout_2.addWidget(self.username)
         self.pass_lbl = QtWidgets.QLabel(self.frame)
@@ -74,10 +75,10 @@ class Ui_MainWindow(object):
         self.password.setMinimumSize(QtCore.QSize(200, 50))
         self.password.setMaximumSize(QtCore.QSize(100000, 50))
         self.password.setStyleSheet("border: 2px solid #fff;\n"
-"color: #fff; margin:0;")
+                                    "color: #fff; margin:0;")
         self.password.setInputMethodHints(QtCore.Qt.ImhNone)
         self.password.setObjectName("password")
-        self.verticalLayout_2.addWidget(self.password, 0, QtCore.Qt.AlignHCenter|QtCore.Qt.AlignVCenter)
+        self.verticalLayout_2.addWidget(self.password, 0, QtCore.Qt.AlignHCenter | QtCore.Qt.AlignVCenter)
         self.login_btn = QtWidgets.QPushButton(self.frame)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
@@ -95,29 +96,29 @@ class Ui_MainWindow(object):
         font.setKerning(True)
         self.login_btn.setFont(font)
         self.login_btn.setStyleSheet("QPushButton#login_btn\n"
-"{\n"
-"    border: 2px solid #fff;\n"
-"    background-color: #96dae4;\n"
-"    color: #fff;\n"
-"}\n"
-"\n"
-"QPushButton:hover#login_btn\n"
-"{\n"
-"    background-color: #FFF;\n"
-"    color: black;\n"
-"}")
+                                     "{\n"
+                                     "    border: 2px solid #fff;\n"
+                                     "    background-color: #96dae4;\n"
+                                     "    color: #fff;\n"
+                                     "}\n"
+                                     "\n"
+                                     "QPushButton:hover#login_btn\n"
+                                     "{\n"
+                                     "    background-color: #FFF;\n"
+                                     "    color: black;\n"
+                                     "}")
         self.login_btn.setObjectName("login_btn")
         self.verticalLayout_2.addWidget(self.login_btn, 0, QtCore.Qt.AlignVCenter)
         self.signup_btn = QtWidgets.QPushButton(self.frame)
         self.signup_btn.setMaximumSize(QtCore.QSize(120, 16777215))
         self.signup_btn.setStyleSheet("QPushButton\n"
-"{\n"
-"    color: white;\n"
-"}\n"
-"QPushButton:hover\n"
-"{\n"
-"    color: blue;\n"
-"}")
+                                      "{\n"
+                                      "    color: white;\n"
+                                      "}\n"
+                                      "QPushButton:hover\n"
+                                      "{\n"
+                                      "    color: blue;\n"
+                                      "}")
         self.signup_btn.setObjectName("signup_btn")
         self.verticalLayout_2.addWidget(self.signup_btn, 0, QtCore.Qt.AlignHCenter)
         self.gridLayout_3.addLayout(self.verticalLayout_2, 0, 0, 1, 1)
@@ -139,4 +140,3 @@ class Ui_MainWindow(object):
         self.pass_lbl.setText(_translate("MainWindow", "Password"))
         self.login_btn.setText(_translate("MainWindow", "Login"))
         self.signup_btn.setText(_translate("MainWindow", "New here? Sign up!"))
-
