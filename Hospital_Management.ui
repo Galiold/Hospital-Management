@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>901</width>
-    <height>813</height>
+    <width>886</width>
+    <height>669</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -119,7 +119,8 @@ border-radius: 10px</string>
 
 QPushButton:hover#login
 {
-	background-color: #000;
+	background-color: #FFF;
+	color: black;
 }</string>
              </property>
              <property name="text">
@@ -143,8 +144,7 @@ QPushButton:hover#login
              </property>
              <property name="styleSheet">
               <string notr="true">border: 2px solid #fff;
-background-color: #96dae4;
-color: #fff
+color: #fff;
 </string>
              </property>
              <property name="inputMethodHints">
@@ -166,7 +166,7 @@ color: #fff
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>901</width>
+     <width>886</width>
      <height>22</height>
     </rect>
    </property>

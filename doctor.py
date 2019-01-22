@@ -1,5 +1,5 @@
-def show_appointments(cursor):
-    cursor.execute("SELECT * FROM Appointments")
+def show_appointments(cursor, id):
+    cursor.execute("SELECT * FROM Appointments WHERE DrID = ", id)
     print("ID\tPatient ID\tTime\tDr ID\tStatus")
     print("--------------------------------------------------")
     for appointment in cursor.fetchall():
@@ -24,6 +24,9 @@ def show_drug_usage_history(cursor):
         print(drug[0])
 
 
+def request_lab_test():
+    pass
+
+
 def send_private_message():
-    print ("Hello")
     pass

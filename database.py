@@ -364,7 +364,7 @@ def doctor_login(id):
         choice = input()
 
         if int(choice) == 1:
-            doctor.show_appointments(doctor_cursor)
+            doctor.show_appointments(doctor_cursor, id)
         elif int(choice) == 2:
             doctor.cancel_appointment(doctor_cursor, doctor_db)
         elif int(choice) == 3:
