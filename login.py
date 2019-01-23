@@ -2,9 +2,13 @@ import smtplib
 
 import user_management
 import manager
+import doctor
 
 admin_db = user_management.database_admin()
 admin_cursor = admin_db.cursor()
+
+doctor_db = user_management.database_doctor()
+doctor_cursor = doctor_db.cursor()
 
 
 def manager_login(ui):
@@ -14,31 +18,37 @@ def manager_login(ui):
     manager.fill_table(ui.tableWidget, pending_list)
     ui.PageStack.setCurrentIndex(2)
 
-def doctor_login(id):
-    doctor_db = user_management.database_doctor()
-    doctor_cursor = doctor_db.cursor()
 
-    while True:
-        print("------------- Doctor Panel ---------------")
-        print('''
-        1. See appointments
-        2. Cancel appointment
-        3. Show patient's drug usage history
-        4. change/complete your profile info
-        5. exit
-        ''')
-        choice = input()
-        #
-        # if int(choice) == 1:
-        #     doctor.show_appointments(doctor_cursor, id)
-        # elif int(choice) == 2:
-        #     doctor.cancel_appointment(doctor_cursor, doctor_db)
-        # elif int(choice) == 3:
-        #     doctor.show_drug_usage_history(doctor_cursor)
-        # if int(choice) == 4:
-        #     profile_update("Doctors", id)
-        if int(choice) == 5:
-            break
+def doctor_login(id, ui):
+    doctor.set_dr_id(id)
+    print(doctor.dr_id)
+    sql = "SELECT * From Appointments WHERE DrID = %s"
+    doctor_cursor.execute(sql, id)
+    appointments = doctor_cursor.fetchall()
+    manager.fill_table(ui.dr_appmnts_table, appointments)
+    ui.PageStack.setCurrentIndex(6)
+
+    # while True:
+    #     print("------------- Doctor Panel ---------------")
+    #     print('''
+    #     1. See appointments
+    #     2. Cancel appointment
+    #     3. Show patient's drug usage history
+    #     4. change/complete your profile info
+    #     5. exit
+    #     ''')
+    #     choice = input()
+    #     #
+    #     # if int(choice) == 1:
+    #     #     doctor.show_appointments(doctor_cursor, id)
+    #     # elif int(choice) == 2:
+    #     #     doctor.cancel_appointment(doctor_cursor, doctor_db)
+    #     # elif int(choice) == 3:
+    #     #     doctor.show_drug_usage_history(doctor_cursor)
+    #     # if int(choice) == 4:
+    #     #     profile_update("Doctors", id)
+    #     if int(choice) == 5:
+    #         break
 
 
 def nurse_login():
@@ -151,7 +161,7 @@ def login(user, passwd, ui):
         if res == 0:
             print("id or password is not correct !")
         else:
-            doctor_login(username)
+            doctor_login(username, ui)
 
     elif username[0] == "n":
         sql = " select * from Nurses where ID= %s and Password = %s"

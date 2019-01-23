@@ -1106,640 +1106,1130 @@
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
     <table id="277" parent="2" name="Accountant"/>
-    <table id="278" parent="2" name="Appointments"/>
-    <table id="279" parent="2" name="Doctors"/>
-    <table id="280" parent="2" name="Drugs"/>
-    <table id="281" parent="2" name="Laboratory"/>
-    <table id="282" parent="2" name="Nurses"/>
-    <table id="283" parent="2" name="Patients"/>
-    <table id="284" parent="2" name="Pharmacy"/>
-    <table id="285" parent="2" name="Prescription"/>
-    <table id="286" parent="2" name="Reception"/>
-    <table id="287" parent="2" name="Registrations"/>
-    <column id="288" parent="277" name="ID">
+    <table id="278" parent="2" name="AppointmentFactor"/>
+    <table id="279" parent="2" name="Appointments"/>
+    <table id="280" parent="2" name="Beds"/>
+    <table id="281" parent="2" name="Doctors"/>
+    <table id="282" parent="2" name="Drugs"/>
+    <table id="283" parent="2" name="Laboratory"/>
+    <table id="284" parent="2" name="LaboratoryFactors"/>
+    <table id="285" parent="2" name="Messages"/>
+    <table id="286" parent="2" name="Nurses"/>
+    <table id="287" parent="2" name="Patients"/>
+    <table id="288" parent="2" name="Pharmacy"/>
+    <table id="289" parent="2" name="PharmacyFactors"/>
+    <table id="290" parent="2" name="Prescription"/>
+    <table id="291" parent="2" name="Reception"/>
+    <table id="292" parent="2" name="Registrations"/>
+    <table id="293" parent="2" name="Test"/>
+    <column id="294" parent="277" name="increment">
       <Position>1</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="295" parent="277" name="ID">
+      <Position>2</Position>
       <DataType>varchar(10)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="289" parent="277" name="Email">
-      <Position>2</Position>
+    <column id="296" parent="277" name="Email">
+      <Position>3</Position>
       <DataType>varchar(30)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="290" parent="277" name="Phone">
-      <Position>3</Position>
+    <column id="297" parent="277" name="Phone">
+      <Position>4</Position>
       <DataType>varchar(13)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="291" parent="277" name="Username">
-      <Position>4</Position>
-      <DataType>varchar(20)|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="292" parent="277" name="Password">
+    <column id="298" parent="277" name="Username">
       <Position>5</Position>
       <DataType>varchar(20)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="293" parent="277" name="Address">
+    <column id="299" parent="277" name="Password">
       <Position>6</Position>
+      <DataType>varchar(20)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="300" parent="277" name="Address">
+      <Position>7</Position>
       <DataType>varchar(50)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="294" parent="277" name="PostalCode">
-      <Position>7</Position>
+    <column id="301" parent="277" name="PostalCode">
+      <Position>8</Position>
       <DataType>varchar(10)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="295" parent="277" name="DoB">
-      <Position>8</Position>
+    <column id="302" parent="277" name="DoB">
+      <Position>9</Position>
       <DataType>date|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="296" parent="277" name="Sex">
-      <Position>9</Position>
+    <column id="303" parent="277" name="Sex">
+      <Position>10</Position>
       <DataType>enum(&apos;Male&apos;, &apos;Female&apos;, &apos;Other&apos;)|0e</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="297" parent="277" name="Height">
-      <Position>10</Position>
-      <DataType>int(3)|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="298" parent="277" name="Weight">
+    <column id="304" parent="277" name="Height">
       <Position>11</Position>
       <DataType>int(3)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="299" parent="278" name="PatientID">
+    <column id="305" parent="277" name="Weight">
+      <Position>12</Position>
+      <DataType>int(3)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="306" parent="277" name="increment">
+      <ColNames>increment</ColNames>
+      <Unique>1</Unique>
+      <Type>btree</Type>
+    </index>
+    <key id="307" parent="277" name="increment">
+      <ColNames>increment</ColNames>
+      <UnderlyingIndexName>increment</UnderlyingIndexName>
+    </key>
+    <column id="308" parent="278" name="increment">
       <Position>1</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="309" parent="278" name="DrID">
+      <Position>2</Position>
       <DataType>varchar(10)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="300" parent="278" name="Time">
-      <Position>2</Position>
-      <DataType>datetime|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="301" parent="278" name="DrID">
+    <column id="310" parent="278" name="PatientID">
       <Position>3</Position>
       <DataType>varchar(10)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="302" parent="278" name="Status">
+    <column id="311" parent="278" name="Cost">
       <Position>4</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="312" parent="278" name="Date">
+      <Position>5</Position>
+      <DataType>date|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="313" parent="278" name="AppFactor_DrID_FK">
+      <ColNames>DrID</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="314" parent="278" name="AppFactor_PatientID_FK">
+      <ColNames>PatientID</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="315" parent="278" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>increment</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="316" parent="278" name="AppFactor_DrID_FK">
+      <ColNames>DrID</ColNames>
+      <RefSchemaName>db_hospital</RefSchemaName>
+      <RefTableName>Doctors</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnUpdate>cascade</OnUpdate>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <foreign-key id="317" parent="278" name="AppFactor_PatientID_FK">
+      <ColNames>PatientID</ColNames>
+      <RefSchemaName>db_hospital</RefSchemaName>
+      <RefTableName>Patients</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnUpdate>cascade</OnUpdate>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <column id="318" parent="279" name="AppointmentID">
+      <Position>1</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="319" parent="279" name="PatientID">
+      <Position>2</Position>
+      <DataType>varchar(10)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="320" parent="279" name="Time">
+      <Position>3</Position>
+      <DataType>datetime|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="321" parent="279" name="DrID">
+      <Position>4</Position>
+      <DataType>varchar(10)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="322" parent="279" name="Status">
+      <Position>5</Position>
       <DataType>tinyint(1)|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="303" parent="278" name="ID">
-      <Position>5</Position>
-      <DataType>int(11)|0s</DataType>
-      <NotNull>1</NotNull>
-      <SequenceIdentity>1</SequenceIdentity>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <index id="304" parent="278" name="ID">
-      <ColNames>ID</ColNames>
+    <index id="323" parent="279" name="ID">
+      <ColNames>AppointmentID</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <index id="305" parent="278" name="DrID">
+    <index id="324" parent="279" name="Appointments_Patient_FK">
+      <ColNames>PatientID</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="325" parent="279" name="DrID">
       <ColNames>DrID</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="306" parent="278" name="PRIMARY">
+    <key id="326" parent="279" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
-      <ColNames>PatientID
-Time
+      <ColNames>Time
 DrID</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="307" parent="278" name="ID">
-      <ColNames>ID</ColNames>
+    <key id="327" parent="279" name="ID">
+      <ColNames>AppointmentID</ColNames>
       <UnderlyingIndexName>ID</UnderlyingIndexName>
     </key>
-    <foreign-key id="308" parent="278" name="appointments_ibfk_1">
+    <foreign-key id="328" parent="279" name="Appointments_Patient_FK">
+      <ColNames>PatientID</ColNames>
+      <RefSchemaName>db_hospital</RefSchemaName>
+      <RefTableName>Patients</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnUpdate>cascade</OnUpdate>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <foreign-key id="329" parent="279" name="appointments_ibfk_1">
       <ColNames>DrID</ColNames>
       <RefSchemaName>db_hospital</RefSchemaName>
       <RefTableName>Doctors</RefTableName>
       <RefColNames>id</RefColNames>
+      <OnUpdate>cascade</OnUpdate>
+      <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <column id="309" parent="279" name="increment">
+    <column id="330" parent="280" name="increment">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="310" parent="279" name="ID">
+    <column id="331" parent="280" name="BedID">
       <Position>2</Position>
       <DataType>varchar(10)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="311" parent="279" name="Email">
+    <column id="332" parent="280" name="PatientID">
+      <Position>3</Position>
+      <DataType>varchar(10)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="333" parent="280" name="increment">
+      <ColNames>increment</ColNames>
+      <Unique>1</Unique>
+      <Type>btree</Type>
+    </index>
+    <index id="334" parent="280" name="Beds_PatientID_FK">
+      <ColNames>PatientID</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="335" parent="280" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>BedID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="336" parent="280" name="increment">
+      <ColNames>increment</ColNames>
+      <UnderlyingIndexName>increment</UnderlyingIndexName>
+    </key>
+    <foreign-key id="337" parent="280" name="Beds_PatientID_FK">
+      <ColNames>PatientID</ColNames>
+      <RefSchemaName>db_hospital</RefSchemaName>
+      <RefTableName>Patients</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="338" parent="281" name="increment">
+      <Position>1</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="339" parent="281" name="ID">
+      <Position>2</Position>
+      <DataType>varchar(10)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="340" parent="281" name="Email">
       <Position>3</Position>
       <DataType>varchar(30)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="312" parent="279" name="Phone">
+    <column id="341" parent="281" name="Phone">
       <Position>4</Position>
       <DataType>varchar(13)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="313" parent="279" name="Username">
+    <column id="342" parent="281" name="Username">
       <Position>5</Position>
       <DataType>varchar(20)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="314" parent="279" name="Password">
+    <column id="343" parent="281" name="Password">
       <Position>6</Position>
       <DataType>varchar(20)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="315" parent="279" name="Address">
+    <column id="344" parent="281" name="Address">
       <Position>7</Position>
       <DataType>varchar(50)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="316" parent="279" name="PostalCode">
+    <column id="345" parent="281" name="PostalCode">
       <Position>8</Position>
       <DataType>varchar(10)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="317" parent="279" name="DoB">
+    <column id="346" parent="281" name="DoB">
       <Position>9</Position>
       <DataType>date|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="318" parent="279" name="Sex">
+    <column id="347" parent="281" name="Sex">
       <Position>10</Position>
       <DataType>enum(&apos;Male&apos;, &apos;Female&apos;, &apos;Other&apos;)|0e</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="319" parent="279" name="Height">
+    <column id="348" parent="281" name="Height">
       <Position>11</Position>
       <DataType>int(3)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="320" parent="279" name="Weight">
+    <column id="349" parent="281" name="Weight">
       <Position>12</Position>
       <DataType>int(3)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="321" parent="279" name="increment">
+    <index id="350" parent="281" name="increment">
       <ColNames>increment</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <key id="322" parent="279" name="PRIMARY">
+    <key id="351" parent="281" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>ID</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="323" parent="279" name="increment">
+    <key id="352" parent="281" name="increment">
       <ColNames>increment</ColNames>
       <UnderlyingIndexName>increment</UnderlyingIndexName>
     </key>
-    <column id="324" parent="280" name="ID">
+    <column id="353" parent="282" name="ID">
       <Position>1</Position>
       <DataType>int(10)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="325" parent="280" name="Name">
+    <column id="354" parent="282" name="Name">
       <Position>2</Position>
       <DataType>varchar(30)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="326" parent="280" name="ExpirationDate">
+    <column id="355" parent="282" name="ExpirationDate">
       <Position>3</Position>
       <DataType>date|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="327" parent="280" name="PRIMARY">
+    <key id="356" parent="282" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>ID</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="328" parent="281" name="ID">
+    <column id="357" parent="283" name="increment">
       <Position>1</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="358" parent="283" name="ID">
+      <Position>2</Position>
       <DataType>varchar(10)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="329" parent="281" name="Email">
-      <Position>2</Position>
+    <column id="359" parent="283" name="Email">
+      <Position>3</Position>
       <DataType>varchar(30)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="330" parent="281" name="Phone">
-      <Position>3</Position>
+    <column id="360" parent="283" name="Phone">
+      <Position>4</Position>
       <DataType>varchar(13)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="331" parent="281" name="Username">
-      <Position>4</Position>
-      <DataType>varchar(20)|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="332" parent="281" name="Password">
+    <column id="361" parent="283" name="Username">
       <Position>5</Position>
       <DataType>varchar(20)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="333" parent="281" name="Address">
+    <column id="362" parent="283" name="Password">
       <Position>6</Position>
+      <DataType>varchar(20)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="363" parent="283" name="Address">
+      <Position>7</Position>
       <DataType>varchar(50)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="334" parent="281" name="PostalCode">
-      <Position>7</Position>
+    <column id="364" parent="283" name="PostalCode">
+      <Position>8</Position>
       <DataType>varchar(10)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="335" parent="281" name="DoB">
-      <Position>8</Position>
+    <column id="365" parent="283" name="DoB">
+      <Position>9</Position>
       <DataType>date|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="336" parent="281" name="Sex">
-      <Position>9</Position>
+    <column id="366" parent="283" name="Sex">
+      <Position>10</Position>
       <DataType>enum(&apos;Male&apos;, &apos;Female&apos;, &apos;Other&apos;)|0e</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="337" parent="281" name="Height">
-      <Position>10</Position>
-      <DataType>int(3)|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="338" parent="281" name="Weight">
+    <column id="367" parent="283" name="Height">
       <Position>11</Position>
       <DataType>int(3)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="339" parent="282" name="ID">
-      <Position>1</Position>
-      <DataType>varchar(10)|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="340" parent="282" name="Email">
-      <Position>2</Position>
-      <DataType>varchar(30)|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="341" parent="282" name="Phone">
-      <Position>3</Position>
-      <DataType>varchar(13)|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="342" parent="282" name="Username">
-      <Position>4</Position>
-      <DataType>varchar(20)|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="343" parent="282" name="Password">
-      <Position>5</Position>
-      <DataType>varchar(20)|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="344" parent="282" name="Address">
-      <Position>6</Position>
-      <DataType>varchar(50)|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="345" parent="282" name="PostalCode">
-      <Position>7</Position>
-      <DataType>varchar(10)|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="346" parent="282" name="DoB">
-      <Position>8</Position>
-      <DataType>date|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="347" parent="282" name="Sex">
-      <Position>9</Position>
-      <DataType>enum(&apos;Male&apos;, &apos;Female&apos;, &apos;Other&apos;)|0e</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="348" parent="282" name="Height">
-      <Position>10</Position>
-      <DataType>int(3)|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="349" parent="282" name="Weight">
-      <Position>11</Position>
-      <DataType>int(3)|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="350" parent="283" name="ID">
-      <Position>1</Position>
-      <DataType>varchar(10)|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="351" parent="283" name="Email">
-      <Position>2</Position>
-      <DataType>varchar(30)|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="352" parent="283" name="Phone">
-      <Position>3</Position>
-      <DataType>varchar(13)|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="353" parent="283" name="Username">
-      <Position>4</Position>
-      <DataType>varchar(20)|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="354" parent="283" name="Password">
-      <Position>5</Position>
-      <DataType>varchar(20)|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="355" parent="283" name="Address">
-      <Position>6</Position>
-      <DataType>varchar(50)|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="356" parent="283" name="PostalCode">
-      <Position>7</Position>
-      <DataType>varchar(10)|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="357" parent="283" name="DoB">
-      <Position>8</Position>
-      <DataType>date|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="358" parent="283" name="Sex">
-      <Position>9</Position>
-      <DataType>enum(&apos;Male&apos;, &apos;Female&apos;, &apos;Other&apos;)|0e</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="359" parent="283" name="Height">
-      <Position>10</Position>
-      <DataType>int(3)|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="360" parent="283" name="Weight">
-      <Position>11</Position>
-      <DataType>int(3)|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="361" parent="283" name="Urgent">
+    <column id="368" parent="283" name="Weight">
       <Position>12</Position>
+      <DataType>int(3)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="369" parent="283" name="increment">
+      <ColNames>increment</ColNames>
+      <Unique>1</Unique>
+      <Type>btree</Type>
+    </index>
+    <key id="370" parent="283" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="371" parent="283" name="increment">
+      <ColNames>increment</ColNames>
+      <UnderlyingIndexName>increment</UnderlyingIndexName>
+    </key>
+    <column id="372" parent="284" name="increment">
+      <Position>1</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="373" parent="284" name="LabID">
+      <Position>2</Position>
+      <DataType>varchar(10)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="374" parent="284" name="PatientID">
+      <Position>3</Position>
+      <DataType>varchar(10)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="375" parent="284" name="Cost">
+      <Position>4</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="376" parent="284" name="Date">
+      <Position>5</Position>
+      <DataType>date|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="377" parent="284" name="LabID">
+      <ColNames>LabID</ColNames>
+      <Unique>1</Unique>
+      <Type>btree</Type>
+    </index>
+    <key id="378" parent="284" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>increment</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="379" parent="284" name="LabID">
+      <ColNames>LabID</ColNames>
+      <UnderlyingIndexName>LabID</UnderlyingIndexName>
+    </key>
+    <foreign-key id="380" parent="284" name="LabFactor_LabID_FK">
+      <ColNames>LabID</ColNames>
+      <RefSchemaName>db_hospital</RefSchemaName>
+      <RefTableName>laboratory</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnUpdate>cascade</OnUpdate>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <column id="381" parent="285" name="increment">
+      <Position>1</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="382" parent="285" name="DrID">
+      <Position>2</Position>
+      <DataType>varchar(10)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="383" parent="285" name="PatientID">
+      <Position>3</Position>
+      <DataType>varchar(10)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="384" parent="285" name="Text">
+      <Position>4</Position>
+      <DataType>text|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="385" parent="285" name="Date">
+      <Position>5</Position>
+      <DataType>date|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="386" parent="285" name="reply">
+      <Position>6</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="387" parent="285" name="Messages_DrID_FK">
+      <ColNames>DrID</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="388" parent="285" name="Messages_PatientID_FK">
+      <ColNames>PatientID</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="389" parent="285" name="Reply_PatientID_FK">
+      <ColNames>reply</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="390" parent="285" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>increment</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="391" parent="285" name="Messages_DrID_FK">
+      <ColNames>DrID</ColNames>
+      <RefSchemaName>db_hospital</RefSchemaName>
+      <RefTableName>Doctors</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnUpdate>cascade</OnUpdate>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <foreign-key id="392" parent="285" name="Messages_PatientID_FK">
+      <ColNames>PatientID</ColNames>
+      <RefSchemaName>db_hospital</RefSchemaName>
+      <RefTableName>patients</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnUpdate>cascade</OnUpdate>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <foreign-key id="393" parent="285" name="Reply_PatientID_FK">
+      <ColNames>reply</ColNames>
+      <RefSchemaName>db_hospital</RefSchemaName>
+      <RefTableName>Messages</RefTableName>
+      <RefColNames>increment</RefColNames>
+      <OnUpdate>cascade</OnUpdate>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <column id="394" parent="286" name="increment">
+      <Position>1</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="395" parent="286" name="ID">
+      <Position>2</Position>
+      <DataType>varchar(10)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="396" parent="286" name="Email">
+      <Position>3</Position>
+      <DataType>varchar(30)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="397" parent="286" name="Phone">
+      <Position>4</Position>
+      <DataType>varchar(13)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="398" parent="286" name="Username">
+      <Position>5</Position>
+      <DataType>varchar(20)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="399" parent="286" name="Password">
+      <Position>6</Position>
+      <DataType>varchar(20)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="400" parent="286" name="Address">
+      <Position>7</Position>
+      <DataType>varchar(50)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="401" parent="286" name="PostalCode">
+      <Position>8</Position>
+      <DataType>varchar(10)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="402" parent="286" name="DoB">
+      <Position>9</Position>
+      <DataType>date|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="403" parent="286" name="Sex">
+      <Position>10</Position>
+      <DataType>enum(&apos;Male&apos;, &apos;Female&apos;, &apos;Other&apos;)|0e</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="404" parent="286" name="Height">
+      <Position>11</Position>
+      <DataType>int(3)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="405" parent="286" name="Weight">
+      <Position>12</Position>
+      <DataType>int(3)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="406" parent="286" name="increment">
+      <ColNames>increment</ColNames>
+      <Unique>1</Unique>
+      <Type>btree</Type>
+    </index>
+    <key id="407" parent="286" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="408" parent="286" name="increment">
+      <ColNames>increment</ColNames>
+      <UnderlyingIndexName>increment</UnderlyingIndexName>
+    </key>
+    <column id="409" parent="287" name="increment">
+      <Position>1</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="410" parent="287" name="ID">
+      <Position>2</Position>
+      <DataType>varchar(10)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="411" parent="287" name="Email">
+      <Position>3</Position>
+      <DataType>varchar(30)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="412" parent="287" name="Phone">
+      <Position>4</Position>
+      <DataType>varchar(13)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="413" parent="287" name="Username">
+      <Position>5</Position>
+      <DataType>varchar(20)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="414" parent="287" name="Password">
+      <Position>6</Position>
+      <DataType>varchar(20)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="415" parent="287" name="Address">
+      <Position>7</Position>
+      <DataType>varchar(50)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="416" parent="287" name="PostalCode">
+      <Position>8</Position>
+      <DataType>varchar(10)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="417" parent="287" name="DoB">
+      <Position>9</Position>
+      <DataType>date|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="418" parent="287" name="Sex">
+      <Position>10</Position>
+      <DataType>enum(&apos;Male&apos;, &apos;Female&apos;, &apos;Other&apos;)|0e</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="419" parent="287" name="Height">
+      <Position>11</Position>
+      <DataType>int(3)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="420" parent="287" name="Weight">
+      <Position>12</Position>
+      <DataType>int(3)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="421" parent="287" name="Urgent">
+      <Position>13</Position>
       <DataType>tinyint(1)|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="362" parent="284" name="ID">
-      <Position>1</Position>
-      <DataType>varchar(10)|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="363" parent="284" name="Email">
-      <Position>2</Position>
-      <DataType>varchar(30)|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="364" parent="284" name="Phone">
-      <Position>3</Position>
-      <DataType>varchar(13)|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="365" parent="284" name="Username">
-      <Position>4</Position>
-      <DataType>varchar(20)|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="366" parent="284" name="Password">
-      <Position>5</Position>
-      <DataType>varchar(20)|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="367" parent="284" name="Address">
-      <Position>6</Position>
-      <DataType>varchar(50)|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="368" parent="284" name="PostalCode">
-      <Position>7</Position>
-      <DataType>varchar(10)|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="369" parent="284" name="DoB">
-      <Position>8</Position>
-      <DataType>date|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="370" parent="284" name="Sex">
-      <Position>9</Position>
-      <DataType>enum(&apos;Male&apos;, &apos;Female&apos;, &apos;Other&apos;)|0e</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="371" parent="284" name="Height">
-      <Position>10</Position>
-      <DataType>int(3)|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="372" parent="284" name="Weight">
-      <Position>11</Position>
-      <DataType>int(3)|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="373" parent="285" name="ID">
+    <index id="422" parent="287" name="increment">
+      <ColNames>increment</ColNames>
+      <Unique>1</Unique>
+      <Type>btree</Type>
+    </index>
+    <key id="423" parent="287" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="424" parent="287" name="increment">
+      <ColNames>increment</ColNames>
+      <UnderlyingIndexName>increment</UnderlyingIndexName>
+    </key>
+    <column id="425" parent="288" name="increment">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="374" parent="285" name="AppointmentID">
+    <column id="426" parent="288" name="ID">
+      <Position>2</Position>
+      <DataType>varchar(10)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="427" parent="288" name="Email">
+      <Position>3</Position>
+      <DataType>varchar(30)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="428" parent="288" name="Phone">
+      <Position>4</Position>
+      <DataType>varchar(13)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="429" parent="288" name="Username">
+      <Position>5</Position>
+      <DataType>varchar(20)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="430" parent="288" name="Password">
+      <Position>6</Position>
+      <DataType>varchar(20)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="431" parent="288" name="Address">
+      <Position>7</Position>
+      <DataType>varchar(50)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="432" parent="288" name="PostalCode">
+      <Position>8</Position>
+      <DataType>varchar(10)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="433" parent="288" name="DoB">
+      <Position>9</Position>
+      <DataType>date|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="434" parent="288" name="Sex">
+      <Position>10</Position>
+      <DataType>enum(&apos;Male&apos;, &apos;Female&apos;, &apos;Other&apos;)|0e</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="435" parent="288" name="Height">
+      <Position>11</Position>
+      <DataType>int(3)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="436" parent="288" name="Weight">
+      <Position>12</Position>
+      <DataType>int(3)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="437" parent="288" name="increment">
+      <ColNames>increment</ColNames>
+      <Unique>1</Unique>
+      <Type>btree</Type>
+    </index>
+    <key id="438" parent="288" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="439" parent="288" name="increment">
+      <ColNames>increment</ColNames>
+      <UnderlyingIndexName>increment</UnderlyingIndexName>
+    </key>
+    <column id="440" parent="289" name="increment">
+      <Position>1</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="441" parent="289" name="PharID">
+      <Position>2</Position>
+      <DataType>varchar(10)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="442" parent="289" name="PatientID">
+      <Position>3</Position>
+      <DataType>varchar(10)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="443" parent="289" name="Cost">
+      <Position>4</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="444" parent="289" name="Date">
+      <Position>5</Position>
+      <DataType>date|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="445" parent="289" name="PharFactors_LabID_FK">
+      <ColNames>PharID</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="446" parent="289" name="PharFactors_PatientID_FK">
+      <ColNames>PatientID</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="447" parent="289" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>increment</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="448" parent="289" name="PharFactors_LabID_FK">
+      <ColNames>PharID</ColNames>
+      <RefSchemaName>db_hospital</RefSchemaName>
+      <RefTableName>Pharmacy</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="449" parent="289" name="PharFactors_PatientID_FK">
+      <ColNames>PatientID</ColNames>
+      <RefSchemaName>db_hospital</RefSchemaName>
+      <RefTableName>Patients</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="450" parent="290" name="ID">
+      <Position>1</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="451" parent="290" name="AppointmentID">
       <Position>2</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="375" parent="285" name="DrugID">
+    <column id="452" parent="290" name="DrugID">
       <Position>3</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="376" parent="285" name="ID">
+    <index id="453" parent="290" name="ID">
       <ColNames>ID</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <index id="377" parent="285" name="DrugID">
+    <index id="454" parent="290" name="DrugID">
       <ColNames>DrugID</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="378" parent="285" name="PRIMARY">
+    <key id="455" parent="290" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>AppointmentID
 DrugID</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="379" parent="285" name="ID">
+    <key id="456" parent="290" name="ID">
       <ColNames>ID</ColNames>
       <UnderlyingIndexName>ID</UnderlyingIndexName>
     </key>
-    <foreign-key id="380" parent="285" name="prescription_ibfk_1">
+    <foreign-key id="457" parent="290" name="prescription_ibfk_1">
+      <ColNames>AppointmentID</ColNames>
+      <RefSchemaName>db_hospital</RefSchemaName>
+      <RefTableName>Appointments</RefTableName>
+      <RefColNames>appointmentid</RefColNames>
+      <OnUpdate>cascade</OnUpdate>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <foreign-key id="458" parent="290" name="prescription_DrugID_FK">
       <ColNames>DrugID</ColNames>
       <RefSchemaName>db_hospital</RefSchemaName>
       <RefTableName>Drugs</RefTableName>
       <RefColNames>id</RefColNames>
+      <OnUpdate>cascade</OnUpdate>
+      <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <column id="381" parent="286" name="ID">
-      <Position>1</Position>
-      <DataType>varchar(10)|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="382" parent="286" name="Email">
-      <Position>2</Position>
-      <DataType>varchar(30)|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="383" parent="286" name="Phone">
-      <Position>3</Position>
-      <DataType>varchar(13)|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="384" parent="286" name="Username">
-      <Position>4</Position>
-      <DataType>varchar(20)|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="385" parent="286" name="Password">
-      <Position>5</Position>
-      <DataType>varchar(20)|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="386" parent="286" name="Address">
-      <Position>6</Position>
-      <DataType>varchar(50)|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="387" parent="286" name="PostalCode">
-      <Position>7</Position>
-      <DataType>varchar(10)|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="388" parent="286" name="DoB">
-      <Position>8</Position>
-      <DataType>date|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="389" parent="286" name="Sex">
-      <Position>9</Position>
-      <DataType>enum(&apos;Male&apos;, &apos;Female&apos;, &apos;Other&apos;)|0e</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="390" parent="286" name="Height">
-      <Position>10</Position>
-      <DataType>int(3)|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="391" parent="286" name="Weight">
-      <Position>11</Position>
-      <DataType>int(3)|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="392" parent="287" name="ID">
+    <column id="459" parent="291" name="increment">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="393" parent="287" name="role">
+    <column id="460" parent="291" name="ID">
       <Position>2</Position>
-      <DataType>varchar(2)|0s</DataType>
+      <DataType>varchar(10)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="394" parent="287" name="email">
+    <column id="461" parent="291" name="Email">
       <Position>3</Position>
       <DataType>varchar(30)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="395" parent="287" name="phone">
+    <column id="462" parent="291" name="Phone">
       <Position>4</Position>
       <DataType>varchar(13)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="396" parent="287" name="username">
+    <column id="463" parent="291" name="Username">
       <Position>5</Position>
       <DataType>varchar(20)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="397" parent="287" name="password">
+    <column id="464" parent="291" name="Password">
       <Position>6</Position>
       <DataType>varchar(20)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="398" parent="287" name="email">
-      <ColNames>email</ColNames>
+    <column id="465" parent="291" name="Address">
+      <Position>7</Position>
+      <DataType>varchar(50)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="466" parent="291" name="PostalCode">
+      <Position>8</Position>
+      <DataType>varchar(10)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="467" parent="291" name="DoB">
+      <Position>9</Position>
+      <DataType>date|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="468" parent="291" name="Sex">
+      <Position>10</Position>
+      <DataType>enum(&apos;Male&apos;, &apos;Female&apos;, &apos;Other&apos;)|0e</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="469" parent="291" name="Height">
+      <Position>11</Position>
+      <DataType>int(3)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="470" parent="291" name="Weight">
+      <Position>12</Position>
+      <DataType>int(3)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="471" parent="291" name="increment">
+      <ColNames>increment</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <key id="399" parent="287" name="PRIMARY">
+    <key id="472" parent="291" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>ID</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="400" parent="287" name="email">
+    <key id="473" parent="291" name="increment">
+      <ColNames>increment</ColNames>
+      <UnderlyingIndexName>increment</UnderlyingIndexName>
+    </key>
+    <column id="474" parent="292" name="ID">
+      <Position>1</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="475" parent="292" name="role">
+      <Position>2</Position>
+      <DataType>varchar(2)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="476" parent="292" name="email">
+      <Position>3</Position>
+      <DataType>varchar(30)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="477" parent="292" name="phone">
+      <Position>4</Position>
+      <DataType>varchar(13)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="478" parent="292" name="username">
+      <Position>5</Position>
+      <DataType>varchar(20)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="479" parent="292" name="password">
+      <Position>6</Position>
+      <DataType>varchar(20)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="480" parent="292" name="email">
+      <ColNames>email</ColNames>
+      <Unique>1</Unique>
+      <Type>btree</Type>
+    </index>
+    <key id="481" parent="292" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="482" parent="292" name="email">
       <ColNames>email</ColNames>
       <UnderlyingIndexName>email</UnderlyingIndexName>
     </key>
+    <column id="483" parent="293" name="increment">
+      <Position>1</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="484" parent="293" name="DrID">
+      <Position>2</Position>
+      <DataType>varchar(10)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="485" parent="293" name="patientID">
+      <Position>3</Position>
+      <DataType>varchar(10)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="486" parent="293" name="DiagnoseReport">
+      <Position>4</Position>
+      <DataType>varchar(50)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="487" parent="293" name="Test_Doctors_ID_fk">
+      <ColNames>DrID</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="488" parent="293" name="Test_Patients_ID_fk">
+      <ColNames>patientID</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="489" parent="293" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>increment</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="490" parent="293" name="Test_Doctors_ID_fk">
+      <ColNames>DrID</ColNames>
+      <RefSchemaName>db_hospital</RefSchemaName>
+      <RefTableName>Doctors</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnUpdate>cascade</OnUpdate>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <foreign-key id="491" parent="293" name="Test_Patients_ID_fk">
+      <ColNames>patientID</ColNames>
+      <RefSchemaName>db_hospital</RefSchemaName>
+      <RefTableName>Patients</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnUpdate>cascade</OnUpdate>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
   </database-model>
 </dataSource>

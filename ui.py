@@ -11,7 +11,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(1154, 1005)
+        MainWindow.resize(1154, 1024)
         MainWindow.setAutoFillBackground(False)
         MainWindow.setStyleSheet("background-color: #303841;")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
@@ -485,6 +485,9 @@ class Ui_MainWindow(object):
         self.recovery_submit_btn = QtWidgets.QPushButton(self.frame_4)
         self.recovery_submit_btn.setMinimumSize(QtCore.QSize(200, 50))
         self.recovery_submit_btn.setMaximumSize(QtCore.QSize(200, 50))
+        font = QtGui.QFont()
+        font.setPointSize(15)
+        self.recovery_submit_btn.setFont(font)
         self.recovery_submit_btn.setStyleSheet("QPushButton\n"
 "{\n"
 "    border: 2px solid #fff;\n"
@@ -662,6 +665,286 @@ class Ui_MainWindow(object):
         self.drugs_table.setColumnCount(0)
         self.drugs_table.setRowCount(0)
         self.PageStack.addWidget(self.Pharmacy_Page)
+        self.Dr_Page = QtWidgets.QWidget()
+        self.Dr_Page.setObjectName("Dr_Page")
+        self.dr_approve_btn = QtWidgets.QPushButton(self.Dr_Page)
+        self.dr_approve_btn.setGeometry(QtCore.QRect(800, 170, 256, 50))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.dr_approve_btn.sizePolicy().hasHeightForWidth())
+        self.dr_approve_btn.setSizePolicy(sizePolicy)
+        self.dr_approve_btn.setMinimumSize(QtCore.QSize(200, 50))
+        font = QtGui.QFont()
+        font.setFamily("Calibri")
+        font.setPointSize(18)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setUnderline(False)
+        font.setWeight(50)
+        font.setKerning(True)
+        self.dr_approve_btn.setFont(font)
+        self.dr_approve_btn.setStyleSheet("QPushButton\n"
+"{\n"
+"    border: 2px solid #fff;\n"
+"    background-color: #96dae4;\n"
+"    color: #fff;\n"
+"}\n"
+"\n"
+"QPushButton:hover\n"
+"{\n"
+"    background-color: #FFF;\n"
+"    color: black;\n"
+"}")
+        self.dr_approve_btn.setObjectName("dr_approve_btn")
+        self.dr_delete_btn = QtWidgets.QPushButton(self.Dr_Page)
+        self.dr_delete_btn.setGeometry(QtCore.QRect(800, 250, 256, 50))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.dr_delete_btn.sizePolicy().hasHeightForWidth())
+        self.dr_delete_btn.setSizePolicy(sizePolicy)
+        self.dr_delete_btn.setMinimumSize(QtCore.QSize(200, 50))
+        font = QtGui.QFont()
+        font.setFamily("Calibri")
+        font.setPointSize(18)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setUnderline(False)
+        font.setWeight(50)
+        font.setKerning(True)
+        self.dr_delete_btn.setFont(font)
+        self.dr_delete_btn.setStyleSheet("QPushButton\n"
+"{\n"
+"    border: 2px solid #fff;\n"
+"    background-color: #96dae4;\n"
+"    color: #fff;\n"
+"}\n"
+"\n"
+"QPushButton:hover\n"
+"{\n"
+"    background-color: #FFF;\n"
+"    color: black;\n"
+"}")
+        self.dr_delete_btn.setObjectName("dr_delete_btn")
+        self.drug_history_btn = QtWidgets.QPushButton(self.Dr_Page)
+        self.drug_history_btn.setGeometry(QtCore.QRect(800, 570, 256, 50))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.drug_history_btn.sizePolicy().hasHeightForWidth())
+        self.drug_history_btn.setSizePolicy(sizePolicy)
+        self.drug_history_btn.setMinimumSize(QtCore.QSize(200, 50))
+        font = QtGui.QFont()
+        font.setFamily("Calibri")
+        font.setPointSize(18)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setUnderline(False)
+        font.setWeight(50)
+        font.setKerning(True)
+        self.drug_history_btn.setFont(font)
+        self.drug_history_btn.setStyleSheet("QPushButton\n"
+"{\n"
+"    border: 2px solid #fff;\n"
+"    background-color: #96dae4;\n"
+"    color: #fff;\n"
+"}\n"
+"\n"
+"QPushButton:hover\n"
+"{\n"
+"    background-color: #FFF;\n"
+"    color: black;\n"
+"}")
+        self.drug_history_btn.setObjectName("drug_history_btn")
+        self.dr_sendmessage_btn = QtWidgets.QPushButton(self.Dr_Page)
+        self.dr_sendmessage_btn.setGeometry(QtCore.QRect(800, 500, 256, 50))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.dr_sendmessage_btn.sizePolicy().hasHeightForWidth())
+        self.dr_sendmessage_btn.setSizePolicy(sizePolicy)
+        self.dr_sendmessage_btn.setMinimumSize(QtCore.QSize(200, 50))
+        font = QtGui.QFont()
+        font.setFamily("Calibri")
+        font.setPointSize(18)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setUnderline(False)
+        font.setWeight(50)
+        font.setKerning(True)
+        self.dr_sendmessage_btn.setFont(font)
+        self.dr_sendmessage_btn.setStyleSheet("QPushButton\n"
+"{\n"
+"    border: 2px solid #fff;\n"
+"    background-color: #96dae4;\n"
+"    color: #fff;\n"
+"}\n"
+"\n"
+"QPushButton:hover\n"
+"{\n"
+"    background-color: #FFF;\n"
+"    color: black;\n"
+"}")
+        self.dr_sendmessage_btn.setObjectName("dr_sendmessage_btn")
+        self.dr_appmnts_table = QtWidgets.QTableWidget(self.Dr_Page)
+        self.dr_appmnts_table.setGeometry(QtCore.QRect(80, 90, 650, 650))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.dr_appmnts_table.sizePolicy().hasHeightForWidth())
+        self.dr_appmnts_table.setSizePolicy(sizePolicy)
+        self.dr_appmnts_table.setMinimumSize(QtCore.QSize(650, 650))
+        self.dr_appmnts_table.setStyleSheet("background-color: white;")
+        self.dr_appmnts_table.setSizeAdjustPolicy(QtWidgets.QAbstractScrollArea.AdjustToContents)
+        self.dr_appmnts_table.setObjectName("dr_appmnts_table")
+        self.dr_appmnts_table.setColumnCount(0)
+        self.dr_appmnts_table.setRowCount(0)
+        self.dr_exit_btn = QtWidgets.QPushButton(self.Dr_Page)
+        self.dr_exit_btn.setGeometry(QtCore.QRect(800, 640, 256, 50))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.dr_exit_btn.sizePolicy().hasHeightForWidth())
+        self.dr_exit_btn.setSizePolicy(sizePolicy)
+        self.dr_exit_btn.setMinimumSize(QtCore.QSize(200, 50))
+        font = QtGui.QFont()
+        font.setFamily("Calibri")
+        font.setPointSize(18)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setUnderline(False)
+        font.setWeight(50)
+        font.setKerning(True)
+        self.dr_exit_btn.setFont(font)
+        self.dr_exit_btn.setStyleSheet("QPushButton\n"
+"{\n"
+"    border: 2px solid #fff;\n"
+"    background-color: #96dae4;\n"
+"    color: #fff;\n"
+"}\n"
+"\n"
+"QPushButton:hover\n"
+"{\n"
+"    background-color: #FFF;\n"
+"    color: black;\n"
+"}")
+        self.dr_exit_btn.setObjectName("dr_exit_btn")
+        self.dr_addfree_btn = QtWidgets.QPushButton(self.Dr_Page)
+        self.dr_addfree_btn.setGeometry(QtCore.QRect(800, 330, 256, 50))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.dr_addfree_btn.sizePolicy().hasHeightForWidth())
+        self.dr_addfree_btn.setSizePolicy(sizePolicy)
+        self.dr_addfree_btn.setMinimumSize(QtCore.QSize(200, 50))
+        font = QtGui.QFont()
+        font.setFamily("Calibri")
+        font.setPointSize(18)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setUnderline(False)
+        font.setWeight(50)
+        font.setKerning(True)
+        self.dr_addfree_btn.setFont(font)
+        self.dr_addfree_btn.setStyleSheet("QPushButton\n"
+"{\n"
+"    border: 2px solid #fff;\n"
+"    background-color: #96dae4;\n"
+"    color: #fff;\n"
+"}\n"
+"\n"
+"QPushButton:hover\n"
+"{\n"
+"    background-color: #FFF;\n"
+"    color: black;\n"
+"}")
+        self.dr_addfree_btn.setObjectName("dr_addfree_btn")
+        self.dr_delfree_btn = QtWidgets.QPushButton(self.Dr_Page)
+        self.dr_delfree_btn.setGeometry(QtCore.QRect(800, 410, 256, 50))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.dr_delfree_btn.sizePolicy().hasHeightForWidth())
+        self.dr_delfree_btn.setSizePolicy(sizePolicy)
+        self.dr_delfree_btn.setMinimumSize(QtCore.QSize(200, 50))
+        font = QtGui.QFont()
+        font.setFamily("Calibri")
+        font.setPointSize(18)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setUnderline(False)
+        font.setWeight(50)
+        font.setKerning(True)
+        self.dr_delfree_btn.setFont(font)
+        self.dr_delfree_btn.setStyleSheet("QPushButton\n"
+"{\n"
+"    border: 2px solid #fff;\n"
+"    background-color: #96dae4;\n"
+"    color: #fff;\n"
+"}\n"
+"\n"
+"QPushButton:hover\n"
+"{\n"
+"    background-color: #FFF;\n"
+"    color: black;\n"
+"}")
+        self.dr_delfree_btn.setObjectName("dr_delfree_btn")
+        self.PageStack.addWidget(self.Dr_Page)
+        self.Messages = QtWidgets.QWidget()
+        self.Messages.setObjectName("Messages")
+        self.textEdit = QtWidgets.QTextEdit(self.Messages)
+        self.textEdit.setGeometry(QtCore.QRect(60, 730, 651, 51))
+        self.textEdit.setStyleSheet("background-color: white; color: black;")
+        self.textEdit.setObjectName("textEdit")
+        self.addDrug_btn_6 = QtWidgets.QPushButton(self.Messages)
+        self.addDrug_btn_6.setGeometry(QtCore.QRect(876, 730, 200, 50))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.addDrug_btn_6.sizePolicy().hasHeightForWidth())
+        self.addDrug_btn_6.setSizePolicy(sizePolicy)
+        self.addDrug_btn_6.setMinimumSize(QtCore.QSize(200, 50))
+        font = QtGui.QFont()
+        font.setFamily("Calibri")
+        font.setPointSize(18)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setUnderline(False)
+        font.setWeight(50)
+        font.setKerning(True)
+        self.addDrug_btn_6.setFont(font)
+        self.addDrug_btn_6.setStyleSheet("QPushButton\n"
+"{\n"
+"    border: 2px solid #fff;\n"
+"    background-color: #96dae4;\n"
+"    color: #fff;\n"
+"}\n"
+"\n"
+"QPushButton:hover\n"
+"{\n"
+"    background-color: #FFF;\n"
+"    color: black;\n"
+"}")
+        self.addDrug_btn_6.setObjectName("addDrug_btn_6")
+        self.drugs_table_3 = QtWidgets.QTableWidget(self.Messages)
+        self.drugs_table_3.setGeometry(QtCore.QRect(290, 150, 600, 500))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Minimum)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.drugs_table_3.sizePolicy().hasHeightForWidth())
+        self.drugs_table_3.setSizePolicy(sizePolicy)
+        self.drugs_table_3.setMinimumSize(QtCore.QSize(600, 500))
+        self.drugs_table_3.setMaximumSize(QtCore.QSize(600, 500))
+        self.drugs_table_3.setStyleSheet("background-color: white;")
+        self.drugs_table_3.setObjectName("drugs_table_3")
+        self.drugs_table_3.setColumnCount(0)
+        self.drugs_table_3.setRowCount(0)
+        self.textEdit_2 = QtWidgets.QTextEdit(self.Messages)
+        self.textEdit_2.setGeometry(QtCore.QRect(730, 730, 111, 51))
+        self.textEdit_2.setStyleSheet("background-color: white; color: black;")
+        self.textEdit_2.setObjectName("textEdit_2")
+        self.PageStack.addWidget(self.Messages)
         self.gridLayout.addWidget(self.PageStack, 0, 0, 1, 1)
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
@@ -670,7 +953,7 @@ class Ui_MainWindow(object):
         MainWindow.setMenuBar(self.menubar)
 
         self.retranslateUi(MainWindow)
-        self.PageStack.setCurrentIndex(5)
+        self.PageStack.setCurrentIndex(6)
         self.selected_role.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
@@ -710,4 +993,12 @@ class Ui_MainWindow(object):
         self.deleteDrug_btn.setText(_translate("MainWindow", "Delete"))
         self.filterDrug_btn.setText(_translate("MainWindow", "Filter"))
         self.pPresc_btn.setText(_translate("MainWindow", "Process Prescription"))
+        self.dr_approve_btn.setText(_translate("MainWindow", "Approve Appointment"))
+        self.dr_delete_btn.setText(_translate("MainWindow", "Delete Appointment"))
+        self.drug_history_btn.setText(_translate("MainWindow", "Patient Drug Usage History"))
+        self.dr_sendmessage_btn.setText(_translate("MainWindow", "Send Private Message"))
+        self.dr_exit_btn.setText(_translate("MainWindow", "Exit"))
+        self.dr_addfree_btn.setText(_translate("MainWindow", "Add Free Time"))
+        self.dr_delfree_btn.setText(_translate("MainWindow", "Delete Free Time"))
+        self.addDrug_btn_6.setText(_translate("MainWindow", "Reply"))
 

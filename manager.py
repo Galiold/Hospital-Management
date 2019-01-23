@@ -18,7 +18,7 @@ def fill_table(table, list):
             for j in range(len(list[0])):
                 table.setItem(i, j, QTableWidgetItem(str(list[i][j])))
     else:
-        print("else")
+        pass
 
 
 def clear_table(ui):
