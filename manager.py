@@ -8,18 +8,17 @@ admin_db = user_management.database_admin()
 admin_cursor = admin_db.cursor()
 
 
-def fill_pending_user_table(ui):
-    sql = "SELECT email,phone,username FROM Registrations"
-    admin_cursor.execute(sql)
-    pending_list = admin_cursor.fetchall()
-    if len(pending_list) > 0:
-        ui.tableWidget.setRowCount(len(pending_list))
-        ui.tableWidget.setColumnCount(len(pending_list[0]))
-        for i in range(len(pending_list)):
-            for j in range(len(pending_list[0])):
-                ui.tableWidget.setItem(i, j, QTableWidgetItem(str(pending_list[i][j])))
+def fill_table(table, list):
+    table.clear()
+    if len(list) > 0:
+        print(list)
+        table.setRowCount(len(list))
+        table.setColumnCount(len(list[0]))
+        for i in range(len(list)):
+            for j in range(len(list[0])):
+                table.setItem(i, j, QTableWidgetItem(str(list[i][j])))
     else:
-        pass
+        print("else")
 
 
 def clear_table(ui):

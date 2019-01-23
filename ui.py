@@ -11,7 +11,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(1181, 1033)
+        MainWindow.resize(1154, 1005)
         MainWindow.setAutoFillBackground(False)
         MainWindow.setStyleSheet("background-color: #303841;")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
@@ -19,8 +19,8 @@ class Ui_MainWindow(object):
         self.centralwidget.setObjectName("centralwidget")
         self.gridLayout = QtWidgets.QGridLayout(self.centralwidget)
         self.gridLayout.setObjectName("gridLayout")
-        self.PageStack = QtWidgets.QStackedWidget(self.centralwidget)
-        self.PageStack.setObjectName("PageStack")
+        self.PharmacyPage = QtWidgets.QStackedWidget(self.centralwidget)
+        self.PharmacyPage.setObjectName("PharmacyPage")
         self.Login = QtWidgets.QWidget()
         self.Login.setObjectName("Login")
         self.formLayout = QtWidgets.QFormLayout(self.Login)
@@ -141,7 +141,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_2.addWidget(self.signup_btn, 0, QtCore.Qt.AlignHCenter)
         self.gridLayout_3.addLayout(self.verticalLayout_2, 0, 0, 1, 1)
         self.formLayout.setWidget(0, QtWidgets.QFormLayout.FieldRole, self.frame)
-        self.PageStack.addWidget(self.Login)
+        self.PharmacyPage.addWidget(self.Login)
         self.Signup = QtWidgets.QWidget()
         self.Signup.setObjectName("Signup")
         self.gridLayout_2 = QtWidgets.QGridLayout(self.Signup)
@@ -320,7 +320,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_3.addLayout(self.verticalLayout)
         self.gridLayout_4.addWidget(self.frame_2, 0, 0, 1, 1)
         self.gridLayout_2.addLayout(self.gridLayout_4, 0, 0, 1, 1)
-        self.PageStack.addWidget(self.Signup)
+        self.PharmacyPage.addWidget(self.Signup)
         self.page = QtWidgets.QWidget()
         self.page.setObjectName("page")
         self.gridLayout_5 = QtWidgets.QGridLayout(self.page)
@@ -369,21 +369,6 @@ class Ui_MainWindow(object):
         self.verticalLayout_8.setObjectName("verticalLayout_8")
         spacerItem4 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
         self.verticalLayout_8.addItem(spacerItem4)
-        self.label_5 = QtWidgets.QLabel(self.frame_3)
-        self.label_5.setStyleSheet("color: white;")
-        self.label_5.setObjectName("label_5")
-        self.verticalLayout_8.addWidget(self.label_5, 0, QtCore.Qt.AlignHCenter)
-        self.selected_email = QtWidgets.QTextEdit(self.frame_3)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.selected_email.sizePolicy().hasHeightForWidth())
-        self.selected_email.setSizePolicy(sizePolicy)
-        self.selected_email.setMinimumSize(QtCore.QSize(200, 50))
-        self.selected_email.setMaximumSize(QtCore.QSize(200, 50))
-        self.selected_email.setStyleSheet("border: 2px solid white;")
-        self.selected_email.setObjectName("selected_email")
-        self.verticalLayout_8.addWidget(self.selected_email, 0, QtCore.Qt.AlignHCenter)
         self.approve_user_btn = QtWidgets.QPushButton(self.frame_3)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
@@ -454,14 +439,14 @@ class Ui_MainWindow(object):
         self.verticalLayout_7.addLayout(self.verticalLayout_6)
         self.horizontalLayout.addWidget(self.frame_3)
         self.gridLayout_5.addLayout(self.horizontalLayout, 0, 0, 1, 1)
-        self.PageStack.addWidget(self.page)
-        self.page_2 = QtWidgets.QWidget()
-        self.page_2.setObjectName("page_2")
-        self.gridLayout_7 = QtWidgets.QGridLayout(self.page_2)
+        self.PharmacyPage.addWidget(self.page)
+        self.Recover_Password_Page = QtWidgets.QWidget()
+        self.Recover_Password_Page.setObjectName("Recover_Password_Page")
+        self.gridLayout_7 = QtWidgets.QGridLayout(self.Recover_Password_Page)
         self.gridLayout_7.setObjectName("gridLayout_7")
         self.gridLayout_6 = QtWidgets.QGridLayout()
         self.gridLayout_6.setObjectName("gridLayout_6")
-        self.frame_4 = QtWidgets.QFrame(self.page_2)
+        self.frame_4 = QtWidgets.QFrame(self.Recover_Password_Page)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -517,16 +502,175 @@ class Ui_MainWindow(object):
         self.verticalLayout_9.addLayout(self.verticalLayout_5)
         self.gridLayout_6.addWidget(self.frame_4, 0, 0, 1, 1)
         self.gridLayout_7.addLayout(self.gridLayout_6, 0, 0, 1, 1)
-        self.PageStack.addWidget(self.page_2)
-        self.gridLayout.addWidget(self.PageStack, 0, 0, 1, 1)
+        self.PharmacyPage.addWidget(self.Recover_Password_Page)
+        self.Reception_Page = QtWidgets.QWidget()
+        self.Reception_Page.setObjectName("Reception_Page")
+        self.reception_table = QtWidgets.QTableWidget(self.Reception_Page)
+        self.reception_table.setGeometry(QtCore.QRect(50, 130, 650, 650))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.reception_table.sizePolicy().hasHeightForWidth())
+        self.reception_table.setSizePolicy(sizePolicy)
+        self.reception_table.setMinimumSize(QtCore.QSize(650, 650))
+        self.reception_table.setStyleSheet("background-color: white;")
+        self.reception_table.setObjectName("reception_table")
+        self.reception_table.setColumnCount(0)
+        self.reception_table.setRowCount(0)
+        self.delete_freetime_btn = QtWidgets.QPushButton(self.Reception_Page)
+        self.delete_freetime_btn.setGeometry(QtCore.QRect(870, 300, 113, 32))
+        self.delete_freetime_btn.setObjectName("delete_freetime_btn")
+        self.add_freetime_btn = QtWidgets.QPushButton(self.Reception_Page)
+        self.add_freetime_btn.setGeometry(QtCore.QRect(870, 510, 113, 32))
+        self.add_freetime_btn.setObjectName("add_freetime_btn")
+        self.clear_time_btn = QtWidgets.QPushButton(self.Reception_Page)
+        self.clear_time_btn.setGeometry(QtCore.QRect(850, 350, 161, 32))
+        self.clear_time_btn.setObjectName("clear_time_btn")
+        self.PharmacyPage.addWidget(self.Reception_Page)
+        self.page_2 = QtWidgets.QWidget()
+        self.page_2.setObjectName("page_2")
+        self.addDrug_btn = QtWidgets.QPushButton(self.page_2)
+        self.addDrug_btn.setGeometry(QtCore.QRect(830, 300, 256, 50))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.addDrug_btn.sizePolicy().hasHeightForWidth())
+        self.addDrug_btn.setSizePolicy(sizePolicy)
+        self.addDrug_btn.setMinimumSize(QtCore.QSize(200, 50))
+        font = QtGui.QFont()
+        font.setFamily("Calibri")
+        font.setPointSize(18)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setUnderline(False)
+        font.setWeight(50)
+        font.setKerning(True)
+        self.addDrug_btn.setFont(font)
+        self.addDrug_btn.setStyleSheet("QPushButton\n"
+"{\n"
+"    border: 2px solid #fff;\n"
+"    background-color: #96dae4;\n"
+"    color: #fff;\n"
+"}\n"
+"\n"
+"QPushButton:hover\n"
+"{\n"
+"    background-color: #FFF;\n"
+"    color: black;\n"
+"}")
+        self.addDrug_btn.setObjectName("addDrug_btn")
+        self.deleteDrug_btn = QtWidgets.QPushButton(self.page_2)
+        self.deleteDrug_btn.setGeometry(QtCore.QRect(830, 390, 256, 50))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.deleteDrug_btn.sizePolicy().hasHeightForWidth())
+        self.deleteDrug_btn.setSizePolicy(sizePolicy)
+        self.deleteDrug_btn.setMinimumSize(QtCore.QSize(200, 50))
+        font = QtGui.QFont()
+        font.setFamily("Calibri")
+        font.setPointSize(18)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setUnderline(False)
+        font.setWeight(50)
+        font.setKerning(True)
+        self.deleteDrug_btn.setFont(font)
+        self.deleteDrug_btn.setStyleSheet("QPushButton\n"
+"{\n"
+"    border: 2px solid #fff;\n"
+"    background-color: #96dae4;\n"
+"    color: #fff;\n"
+"}\n"
+"\n"
+"QPushButton:hover\n"
+"{\n"
+"    background-color: #FFF;\n"
+"    color: black;\n"
+"}")
+        self.deleteDrug_btn.setObjectName("deleteDrug_btn")
+        self.filterDrug_btn = QtWidgets.QPushButton(self.page_2)
+        self.filterDrug_btn.setGeometry(QtCore.QRect(830, 500, 256, 50))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.filterDrug_btn.sizePolicy().hasHeightForWidth())
+        self.filterDrug_btn.setSizePolicy(sizePolicy)
+        self.filterDrug_btn.setMinimumSize(QtCore.QSize(200, 50))
+        font = QtGui.QFont()
+        font.setFamily("Calibri")
+        font.setPointSize(18)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setUnderline(False)
+        font.setWeight(50)
+        font.setKerning(True)
+        self.filterDrug_btn.setFont(font)
+        self.filterDrug_btn.setStyleSheet("QPushButton\n"
+"{\n"
+"    border: 2px solid #fff;\n"
+"    background-color: #96dae4;\n"
+"    color: #fff;\n"
+"}\n"
+"\n"
+"QPushButton:hover\n"
+"{\n"
+"    background-color: #FFF;\n"
+"    color: black;\n"
+"}")
+        self.filterDrug_btn.setObjectName("filterDrug_btn")
+        self.pPresc_btn = QtWidgets.QPushButton(self.page_2)
+        self.pPresc_btn.setGeometry(QtCore.QRect(830, 600, 256, 50))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.pPresc_btn.sizePolicy().hasHeightForWidth())
+        self.pPresc_btn.setSizePolicy(sizePolicy)
+        self.pPresc_btn.setMinimumSize(QtCore.QSize(200, 50))
+        font = QtGui.QFont()
+        font.setFamily("Calibri")
+        font.setPointSize(18)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setUnderline(False)
+        font.setWeight(50)
+        font.setKerning(True)
+        self.pPresc_btn.setFont(font)
+        self.pPresc_btn.setStyleSheet("QPushButton\n"
+"{\n"
+"    border: 2px solid #fff;\n"
+"    background-color: #96dae4;\n"
+"    color: #fff;\n"
+"}\n"
+"\n"
+"QPushButton:hover\n"
+"{\n"
+"    background-color: #FFF;\n"
+"    color: black;\n"
+"}")
+        self.pPresc_btn.setObjectName("pPresc_btn")
+        self.drugs_table = QtWidgets.QTableWidget(self.page_2)
+        self.drugs_table.setGeometry(QtCore.QRect(100, 130, 650, 650))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.drugs_table.sizePolicy().hasHeightForWidth())
+        self.drugs_table.setSizePolicy(sizePolicy)
+        self.drugs_table.setMinimumSize(QtCore.QSize(650, 650))
+        self.drugs_table.setStyleSheet("background-color: white;")
+        self.drugs_table.setObjectName("drugs_table")
+        self.drugs_table.setColumnCount(0)
+        self.drugs_table.setRowCount(0)
+        self.PharmacyPage.addWidget(self.page_2)
+        self.gridLayout.addWidget(self.PharmacyPage, 0, 0, 1, 1)
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 1181, 22))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 1154, 22))
         self.menubar.setObjectName("menubar")
         MainWindow.setMenuBar(self.menubar)
 
         self.retranslateUi(MainWindow)
-        self.PageStack.setCurrentIndex(0)
+        self.PharmacyPage.setCurrentIndex(5)
         self.selected_role.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
@@ -554,10 +698,16 @@ class Ui_MainWindow(object):
         self.selected_role.setItemText(7, _translate("MainWindow", "Laboratory"))
         self.submit_btn.setText(_translate("MainWindow", "Submit"))
         self.AdminPanel.setText(_translate("MainWindow", "Adminstration Panel"))
-        self.label_5.setText(_translate("MainWindow", "Enter the selected E-Mail here"))
         self.approve_user_btn.setText(_translate("MainWindow", "Approve User"))
         self.delete_user_btn.setText(_translate("MainWindow", "Delete User"))
         self.add_user_btn.setText(_translate("MainWindow", "Add New User"))
         self.label_7.setText(_translate("MainWindow", "Enter your email here, we will send you a new password."))
         self.recovery_submit_btn.setText(_translate("MainWindow", "Submit"))
+        self.delete_freetime_btn.setText(_translate("MainWindow", "Delete Free Time"))
+        self.add_freetime_btn.setText(_translate("MainWindow", "Add Free Time"))
+        self.clear_time_btn.setText(_translate("MainWindow", "Delete Appointment"))
+        self.addDrug_btn.setText(_translate("MainWindow", "Add"))
+        self.deleteDrug_btn.setText(_translate("MainWindow", "Delete"))
+        self.filterDrug_btn.setText(_translate("MainWindow", "Filter"))
+        self.pPresc_btn.setText(_translate("MainWindow", "Process Prescription"))
 

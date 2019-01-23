@@ -8,7 +8,10 @@ admin_cursor = admin_db.cursor()
 
 
 def manager_login(ui):
-    manager.fill_pending_user_table(ui)
+    sql = "SELECT email,phone,username FROM Registrations"
+    admin_cursor.execute(sql)
+    pending_list = admin_cursor.fetchall()
+    manager.fill_table(ui.tableWidget, pending_list)
     ui.PageStack.setCurrentIndex(2)
 
 def doctor_login(id):
@@ -117,20 +120,26 @@ def accountant_login():
             break
 
 
-def reception_login():
-    while True:
-        name = "Arman"  # query to get the name
-        print("------------- Reception Panel ---------------")
-        print('''
-        1. change/complete your profile info
-        2. exit
-        ''')
-        choice = input()
+def reception_login(ui):
+    sql = "SELECT * FROM Appointments"
+    admin_cursor.execute(sql)
+    appointments = admin_cursor.fetchall()
+    manager.fill_table(ui.reception_table, appointments)
+    ui.PageStack.setCurrentIndex(4)
 
-        if int(choice) == 1:
-            profile_update("Doctors", id)
-        elif int(choice) == 2:
-            break
+    # while True:
+    #     name = "Arman"  # query to get the name
+    #     print("------------- Reception Panel ---------------")
+    #     print('''
+    #     1. change/complete your profile info
+    #     2. exit
+    #     ''')
+    #     choice = input()
+    #
+    #     if int(choice) == 1:
+    #         profile_update("Doctors", id)
+    #     elif int(choice) == 2:
+    #         break
 
 
 
@@ -206,7 +215,7 @@ def login(user, passwd, ui):
         if res == 0:
             print("id or password is not correct !")
         else:
-            reception_login()
+            reception_login(ui)
 
 
 def forgot_password(email):
@@ -225,7 +234,7 @@ def forgot_password(email):
 
     sql = "select Password FROM Accountant where Email = %s"
     res = admin_cursor.execute(sql, email)
-    if res > 0 :
+    if res > 0:
         result = admin_cursor.fetchone()
         password_mail(result)
 
@@ -243,7 +252,7 @@ def forgot_password(email):
 
     sql = "select Password FROM Pharmacy where Email = %s"
     res = admin_cursor.execute(sql, email)
-    if res>0 :
+    if res > 0:
         result = admin_cursor.fetchone()
         password_mail(result)
 
