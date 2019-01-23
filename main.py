@@ -187,7 +187,7 @@ def approve_appointment(ui):
     appointment_id, pr_ok = QtWidgets.QInputDialog.getText(a, 'Approve Appointment', 'Enter Appointment ID')
     if pr_ok:
         doctor.approve_appointment(appointment_id, doctor_cursor, doctor_db)
-    sql = "SELECT * FROM Appointments WHERE DrID = %s"
+    sql = "SELECT * FROM Appointments WHERE DrID = %s ORDER BY AppointmentID"
     doctor_cursor.execute(sql, doctor.dr_id)
     appointments = doctor_cursor.fetchall()
     manager.fill_table(ui.dr_appmnts_table, appointments)
@@ -198,7 +198,7 @@ def delete_appointment_dr(ui):
     appointment_id, pr_ok = QtWidgets.QInputDialog.getText(a, 'Delete Appointment', 'Enter Appointment ID')
     if pr_ok:
         doctor.delete_apponitment(appointment_id, doctor_cursor, doctor_db)
-    sql = "SELECT * FROM Appointments WHERE DrID = %s"
+    sql = "SELECT * FROM Appointments WHERE DrID = %s ORDER BY AppointmentID"
     doctor_cursor.execute(sql, doctor.dr_id)
     appointments = doctor_cursor.fetchall()
     manager.fill_table(ui.dr_appmnts_table, appointments)
@@ -209,7 +209,7 @@ def add_free_time_dr(ui):
     time, pr_ok = QtWidgets.QInputDialog.getText(a, 'Add Free Time', 'Enter Time')
     if pr_ok:
         doctor.add_free_time(doctor_cursor, doctor_db, time, doctor.dr_id)
-    sql = "SELECT * FROM Appointments WHERE DrID = %s"
+    sql = "SELECT * FROM Appointments WHERE DrID = %s ORDER BY AppointmentID"
     doctor_cursor.execute(sql, doctor.dr_id)
     appointments = doctor_cursor.fetchall()
     manager.fill_table(ui.dr_appmnts_table, appointments)
@@ -220,7 +220,7 @@ def delete_free_time_dr(ui):
     appointment_id, pr_ok = QtWidgets.QInputDialog.getText(a, 'Delete Appointment', 'Enter Appointment ID')
     if pr_ok:
         doctor.delete_freetime(appointment_id, doctor_cursor, doctor_db)
-    sql = "SELECT * FROM Appointments WHERE DrID = %s"
+    sql = "SELECT * FROM Appointments WHERE DrID = %s ORDER BY AppointmentID"
     doctor_cursor.execute(sql, doctor.dr_id)
     appointments = doctor_cursor.fetchall()
     manager.fill_table(ui.dr_appmnts_table, appointments)
@@ -232,27 +232,58 @@ def show_drug_history(ui):
     if ok:
         drug_name_list = doctor.show_drug_usage_history(str(patient_id), doctor_cursor)
 
-    print(drug_name_list)
-    # s = ""
-    # for drug_name in drug_name_list:
-    #     s = s + str(drug_name[0]) + "\n"
-    #
-    # msg = QtWidgets.QMessageBox()
-    # msg.setIcon(QtWidgets.QMessageBox.Information)
-    # msg.setText("Patient's drug usage history is as follows:")
-    # msg.setInformativeText(s)
-    # msg.setWindowTitle("Drug List")
-    # msg.setStandardButtons(QtWidgets.QMessageBox.Ok)
-    # msg.show()
-    # retval = msg.exec_()
+    s = ""
+    for drug_name in drug_name_list:
+        s = s + str(drug_name[0]) + "\n"
+
+    msg = QtWidgets.QMessageBox()
+    msg.setIcon(QtWidgets.QMessageBox.Information)
+    msg.setText("Patient's drug usage history is as follows:")
+    msg.setInformativeText(s)
+    msg.setWindowTitle("Drug List")
+    msg.setStandardButtons(QtWidgets.QMessageBox.Ok)
+    msg.show()
+    retval = msg.exec_()
 
 
 def send_message_dr(ui):
-    pass
+    messages = doctor.get_messages(doctor_cursor)
+    manager.fill_table(ui.message_table, messages)
+    ui.PageStack.setCurrentIndex(7)
+
+
+def presc_test():
+    a = QtWidgets.QWidget()
+    patient_id, ok = QtWidgets.QInputDialog.getText(a, 'Prescribe Test', 'Enter Patient ID')
+    if ok:
+        doctor.prescribe_test(str(patient_id), doctor_cursor, doctor_db)
+
+
+def presc_drugs():
+    a = QtWidgets.QWidget()
+    appointment_id, app_ok = QtWidgets.QInputDialog.getText(a, 'Prescribe Drug', 'Enter Appointment ID')
+    if app_ok:
+        drug_count, dr_ok = QtWidgets.QInputDialog.getText(a, 'Prescribe Drug', 'Enter Drug Count')
+        if dr_ok:
+            for i in range(int(drug_count)):
+                drug_name, drname_ok = QtWidgets.QInputDialog.getText(a, 'Prescribe Drug', 'Enter Drug Name')
+                if drname_ok:
+                    doctor.prescribe_drug(appointment_id, drug_name, doctor_cursor, doctor_db)
+
 
 
 def exit_dr_panel(ui):
     pass
+
+
+# ---------------------- Message Panel ----------------------
+def send(ui):
+    content = ui.messsage_txt.toPlainText()
+    receiverid = ui.receiverid_txt.toPlainText()
+    doctor.send_message(content, receiverid, doctor_cursor, doctor_db)
+    messages = doctor.get_messages(doctor_cursor)
+    manager.fill_table(ui.message_table, messages)
+
 
 
 if __name__ == "__main__":
@@ -304,6 +335,14 @@ if __name__ == "__main__":
 
     ui.drug_history_btn.clicked.connect(partial(show_drug_history, ui))
 
-    # ui.dr_appmnts_table.size
+    ui.dr_sendmessage_btn.clicked.connect(partial(send_message_dr, ui))
+
+    ui.sendmessage_btn.clicked.connect(partial(send, ui))
+
+    ui.pre_test_btn.clicked.connect(presc_test)
+
+    ui.pre_drug_btn.clicked.connect(presc_drugs)
+
+    # ui.receiverid_txt
 
     sys.exit(app.exec_())

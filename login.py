@@ -22,33 +22,11 @@ def manager_login(ui):
 def doctor_login(id, ui):
     doctor.set_dr_id(id)
     print(doctor.dr_id)
-    sql = "SELECT * From Appointments WHERE DrID = %s"
+    sql = "SELECT * From Appointments WHERE DrID = %s ORDER BY AppointmentID"
     doctor_cursor.execute(sql, id)
     appointments = doctor_cursor.fetchall()
     manager.fill_table(ui.dr_appmnts_table, appointments)
     ui.PageStack.setCurrentIndex(6)
-
-    # while True:
-    #     print("------------- Doctor Panel ---------------")
-    #     print('''
-    #     1. See appointments
-    #     2. Cancel appointment
-    #     3. Show patient's drug usage history
-    #     4. change/complete your profile info
-    #     5. exit
-    #     ''')
-    #     choice = input()
-    #     #
-    #     # if int(choice) == 1:
-    #     #     doctor.show_appointments(doctor_cursor, id)
-    #     # elif int(choice) == 2:
-    #     #     doctor.cancel_appointment(doctor_cursor, doctor_db)
-    #     # elif int(choice) == 3:
-    #     #     doctor.show_drug_usage_history(doctor_cursor)
-    #     # if int(choice) == 4:
-    #     #     profile_update("Doctors", id)
-    #     if int(choice) == 5:
-    #         break
 
 
 def nurse_login():
