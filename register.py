@@ -38,7 +38,7 @@ def register_user(name_in, email_in, phone_in, passwd_in, role_in):
     elif role_in == "Patient":
         role = 'p'
     elif role_in == "Pharmacist":
-        role = 'ph'
+        role = 'h'
     elif role_in == "Accountant":
         role = 'a'
     elif role_in == "Reception":

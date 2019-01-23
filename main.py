@@ -3,6 +3,7 @@ from time import sleep
 
 from PyQt5 import QtWidgets
 
+import pharmacy
 import user_management
 import login
 import ui
@@ -14,6 +15,7 @@ manager_add_user = False
 
 admin_db = user_management.database_admin()
 admin_cursor = admin_db.cursor()
+
 
 def btn_clicked(ui):
     username_in = ui.username.toPlainText()
@@ -49,7 +51,7 @@ def submit_register_form(ui):
         admin_cursor.execute(sql)
         pending_list = admin_cursor.fetchall()
         ui.tableWidget.clear()
-        manager.fill_pending_user_table(ui, pending_list)
+        manager.fill_table(ui, pending_list)
         ui.PageStack.setCurrentIndex(2)
         manager_add_user = False
     else:
@@ -66,7 +68,7 @@ def approve_pending_user(ui):
     a = QtWidgets.QWidget()
     email_in, ok = QtWidgets.QInputDialog.getText(a, 'Dialog', 'Enter email')
     if ok:
-        manager.approve(email_in)
+        manager.approve(str(email_in), admin_cursor, admin_db)
     sql = "SELECT email,phone,username FROM Registrations"
     admin_cursor.execute(sql)
     pending_list = admin_cursor.fetchall()
@@ -77,7 +79,7 @@ def delete_pending_user(ui, app):
     a = QtWidgets.QWidget()
     email_in, ok = QtWidgets.QInputDialog.getText(a, 'Dialog', 'Enter email')
     if ok:
-        manager.delete(str(email_in))
+        manager.delete(str(email_in), admin_cursor, admin_db)
     sql = "SELECT email,phone,username FROM Registrations"
     admin_cursor.execute(sql)
     pending_list = admin_cursor.fetchall()
@@ -119,6 +121,53 @@ def add_free_time(ui):
     manager.fill_table(ui.reception_table, appointments)
 
 
+def add_drug(ui):
+    a = QtWidgets.QWidget()
+    drug_name_in, drug_ok = QtWidgets.QInputDialog.getText(a, 'Add New Drug', 'Enter Drug Name')
+    exp_in, exp_ok = QtWidgets.QInputDialog.getText(a, 'Add New Drug', 'Enter Expiration Date')
+    if exp_ok and drug_ok:
+        pharmacy.add_drug(str(drug_name_in), str(exp_in), admin_cursor, admin_db)
+    sql = "SELECT * FROM Drugs"
+    admin_cursor.execute(sql)
+    drugs = admin_cursor.fetchall()
+    manager.fill_table(ui.drugs_table, drugs)
+
+
+def delete_drug(ui):
+    a = QtWidgets.QWidget()
+    drug_name_in, drug_ok = QtWidgets.QInputDialog.getText(a, 'Add New Drug', 'Enter Drug Name')
+    if drug_ok:
+        pharmacy.delete_drug(str(drug_name_in), admin_cursor, admin_db)
+    sql = "SELECT * FROM Drugs"
+    admin_cursor.execute(sql)
+    drugs = admin_cursor.fetchall()
+    manager.fill_table(ui.drugs_table, drugs)
+
+
+def filter_drugs(ui):
+    filtered_list = pharmacy.filter(admin_cursor)
+    manager.fill_table(ui.drugs_table, filtered_list)
+
+
+def process_priscription(ui):
+    a = QtWidgets.QWidget()
+    prescription, pr_ok = QtWidgets.QInputDialog.getText(a, 'Process Prescription', 'Enter Appointment ID')
+    if pr_ok:
+        drug_name_list = pharmacy.process_prescription(admin_cursor, prescription)
+
+    s = ""
+    for drug_name in drug_name_list:
+        s = s + str(drug_name[0]) + "\n"
+
+    msg = QtWidgets.QMessageBox()
+    msg.setIcon(QtWidgets.QMessageBox.Information)
+    msg.setText("Prescription's drug list is as follows:")
+    msg.setInformativeText(s)
+    msg.setWindowTitle("Drug List")
+    msg.setStandardButtons(QtWidgets.QMessageBox.Ok)
+    msg.show()
+    retval = msg.exec_()
+
 if __name__ == "__main__":
     import sys
 
@@ -151,5 +200,13 @@ if __name__ == "__main__":
     ui.clear_time_btn.clicked.connect(partial(delete_appointment, ui))
 
     ui.add_freetime_btn.clicked.connect(partial(add_free_time, ui))
+
+    ui.addDrug_btn.clicked.connect(partial(add_drug, ui))
+
+    ui.deleteDrug_btn.clicked.connect(partial(delete_drug, ui))
+
+    ui.filterDrug_btn.clicked.connect(partial(filter_drugs, ui))
+
+    ui.pPresc_btn.clicked.connect(partial(process_priscription, ui))
 
     sys.exit(app.exec_())

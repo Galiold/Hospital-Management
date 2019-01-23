@@ -88,20 +88,25 @@ def laboratory_login():
             break
 
 
-def pharmacy_login():
-    while True:
-        name = "Arman"  # query to get the name
-        print("------------- Pharmacy Panel ---------------")
-        print('''
-        1. change/complete your profile info
-        2. exit
-        ''')
-        choice = input()
-
-        if int(choice) == 1:
-            profile_update("Doctors", id)
-        elif int(choice) == 2:
-            break
+def pharmacy_login(ui):
+    sql = "SELECT * FROM Drugs"
+    admin_cursor.execute(sql)
+    appointments = admin_cursor.fetchall()
+    manager.fill_table(ui.drugs_table, appointments)
+    ui.PageStack.setCurrentIndex(5)
+    # while True:
+    #     name = "Arman"  # query to get the name
+    #     print("------------- Pharmacy Panel ---------------")
+    #     print('''
+    #     1. change/complete your profile info
+    #     2. exit
+    #     ''')
+    #     choice = input()
+    #
+    #     if int(choice) == 1:
+    #         profile_update("Doctors", id)
+    #     elif int(choice) == 2:
+    #         break
 
 
 def accountant_login():
@@ -126,21 +131,6 @@ def reception_login(ui):
     appointments = admin_cursor.fetchall()
     manager.fill_table(ui.reception_table, appointments)
     ui.PageStack.setCurrentIndex(4)
-
-    # while True:
-    #     name = "Arman"  # query to get the name
-    #     print("------------- Reception Panel ---------------")
-    #     print('''
-    #     1. change/complete your profile info
-    #     2. exit
-    #     ''')
-    #     choice = input()
-    #
-    #     if int(choice) == 1:
-    #         profile_update("Doctors", id)
-    #     elif int(choice) == 2:
-    #         break
-
 
 
 def login(user, passwd, ui):
@@ -197,7 +187,7 @@ def login(user, passwd, ui):
         if res == 0:
             print("id or password is not correct !")
         else:
-            pharmacy_login()
+            pharmacy_login(ui)
 
     elif username[0] == "a":
         sql = " select * from Accountant where ID= %s and Password = %s"
