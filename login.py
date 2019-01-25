@@ -3,6 +3,8 @@ import smtplib
 import user_management
 import manager
 import doctor
+import patient
+import laboratory
 
 admin_db = user_management.database_admin()
 admin_cursor = admin_db.cursor()
@@ -44,36 +46,22 @@ def nurse_login():
             break
 
 
-def patient_login():
-    while True:
-        name = "Arman"  # query to get the name
-        print("------------- Patient Panel ---------------")
-        print('''
-        1. change/complete your profile info
-        2. exit
-        ''')
-        choice = input()
-
-        if int(choice) == 1:
-            profile_update("Doctors", id)
-        elif int(choice) == 2:
-            break
+def patient_login(id, ui):
+    patient.set_patient_id(id)
+    sql = "SELECT * From Appointments WHERE PatientID = %s OR PatientID IS NULL ORDER BY AppointmentID"
+    admin_cursor.execute(sql, id)
+    appointments = admin_cursor.fetchall()
+    manager.fill_table(ui.P_AppointmentsTable, appointments)
+    ui.PageStack.setCurrentIndex(8)
 
 
-def laboratory_login():
-    while True:
-        name = "Arman"  # query to get the name
-        print("------------- Laboratory Panel ---------------")
-        print('''
-        1. change/complete your profile info
-        2. exit
-        ''')
-        choice = input()
-
-        if int(choice) == 1:
-            profile_update("Doctors", id)
-        elif int(choice) == 2:
-            break
+def laboratory_login(ui):
+    laboratory.set_lab_id(id)
+    sql = "SELECT * FROM Test"
+    admin_cursor.execute(sql)
+    tests = admin_cursor.fetchall()
+    manager.fill_table(ui.Lab_Table, tests)
+    ui.PageStack.setCurrentIndex(9)
 
 
 def pharmacy_login(ui):
@@ -157,7 +145,7 @@ def login(user, passwd, ui):
         if res == 0:
             print("id or password is not correct !")
         else:
-            patient_login()
+            patient_login(username, ui)
 
     elif username[0] == "l":
         sql = " select * from Laboratory where ID= %s and Password = %s"
@@ -166,7 +154,7 @@ def login(user, passwd, ui):
         if res == 0:
             print("id or password is not correct !")
         else:
-            laboratory_login()
+            laboratory_login(ui)
 
     elif username[0] == "h":
         sql = " select * from Pharmacy where ID= %s and Password = %s"

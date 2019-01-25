@@ -9,7 +9,8 @@ import user_management
 
 
 def fill_table(table, list):
-    table.clear()
+    # table.clear()
+    table.setRowCount(0)
     if len(list) > 0:
         print(list)
         table.setRowCount(len(list))
@@ -19,6 +20,7 @@ def fill_table(table, list):
                 table.setItem(i, j, QTableWidgetItem(str(list[i][j])))
     else:
         pass
+    table.resizeRowsToContents()
 
 
 def clear_table(ui):

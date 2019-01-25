@@ -93,3 +93,13 @@ def send_mail(email, msg):
     server.sendmail("holmes_sh98@yahoo.com", str(email), str(msg))
     print(4)
     server.quit()
+
+
+def bed_assign(patient_id, cursor, db):
+    sql = "SELECT BedID FROM Beds WHERE PatientID IS NULL"
+    cursor.execute(sql)
+    first_bed = cursor.fetchone()
+    print(first_bed[0])
+    sql = "update Beds set PatientID = %s where BedID = %s"
+    cursor.execute(sql, (patient_id, first_bed[0]))
+    db.commit()

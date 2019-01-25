@@ -11,6 +11,8 @@ import register
 import manager
 import reception
 import doctor
+import patient
+import laboratory
 
 manager_add_user = False
 
@@ -19,6 +21,10 @@ admin_cursor = admin_db.cursor()
 
 doctor_db = user_management.database_doctor()
 doctor_cursor = doctor_db.cursor()
+
+
+# TODO
+#   - Fix message for both doctor and patient
 
 
 # ---------------------- Login Panel ----------------------
@@ -231,10 +237,10 @@ def show_drug_history(ui):
     patient_id, ok = QtWidgets.QInputDialog.getText(a, 'Show Drug Usage History', 'Enter Patient ID')
     if ok:
         drug_name_list = doctor.show_drug_usage_history(str(patient_id), doctor_cursor)
+        s = ""
+        for drug_name in drug_name_list:
+            s = s + str(drug_name[0]) + "\n"
 
-    s = ""
-    for drug_name in drug_name_list:
-        s = s + str(drug_name[0]) + "\n"
 
     msg = QtWidgets.QMessageBox()
     msg.setIcon(QtWidgets.QMessageBox.Information)
@@ -271,6 +277,12 @@ def presc_drugs():
                     doctor.prescribe_drug(appointment_id, drug_name, doctor_cursor, doctor_db)
 
 
+def dr_emergency():
+    a = QtWidgets.QWidget()
+    patient_id, ok = QtWidgets.QInputDialog.getText(a, 'Emergency State', 'Enter Patient ID')
+    if ok:
+        doctor.bed_assign(patient_id, doctor_cursor, doctor_db)
+
 
 def exit_dr_panel(ui):
     pass
@@ -280,9 +292,73 @@ def exit_dr_panel(ui):
 def send(ui):
     content = ui.messsage_txt.toPlainText()
     receiverid = ui.receiverid_txt.toPlainText()
-    doctor.send_message(content, receiverid, doctor_cursor, doctor_db)
-    messages = doctor.get_messages(doctor_cursor)
+    patient.p_send_message(content, receiverid, admin_cursor, admin_db)
+    messages = patient.get_messages(admin_cursor)
     manager.fill_table(ui.message_table, messages)
+
+
+# ---------------------- Patient Panel ----------------------
+def p_reserve(ui):
+    a = QtWidgets.QWidget()
+    appointment_id, app_ok = QtWidgets.QInputDialog.getText(a, 'Reserve Appointment', 'Enter Appointment ID')
+    if app_ok:
+        patient.p_reserve_appointment(appointment_id, admin_cursor, admin_db)
+    sql = "SELECT * FROM Appointments WHERE PatientID = %s OR PatientID IS NULL ORDER BY AppointmentID"
+    admin_cursor.execute(sql, patient.patient_id)
+    appointments = admin_cursor.fetchall()
+    manager.fill_table(ui.P_AppointmentsTable, appointments)
+
+def p_send_message(ui):
+    messages = patient.get_messages(admin_cursor)
+    manager.fill_table(ui.message_table, messages)
+    ui.PageStack.setCurrentIndex(7)
+
+def p_show_bed_info():
+    result = patient.p_show_bed_info(admin_cursor, admin_db)
+    msg = QtWidgets.QMessageBox()
+    msg.setIcon(QtWidgets.QMessageBox.Information)
+    if result:
+        text = "Your bed id is %s." %result
+        msg.setText(text)
+    else:
+        msg.setText("You have no bed.")
+    msg.setWindowTitle("Bed info")
+    msg.setStandardButtons(QtWidgets.QMessageBox.Ok)
+    msg.show()
+    retval = msg.exec_()
+
+
+def p_show_prescription(ui):
+    a = QtWidgets.QWidget()
+    appointment_id, app_ok = QtWidgets.QInputDialog.getText(a, 'Show Prescription', 'Enter Appointment ID')
+    if app_ok:
+        drug_name_list = patient.show_prescription(appointment_id, admin_cursor)
+        s = ""
+        for drug_name in drug_name_list:
+            s = s + str(drug_name[0]) + "\n"
+
+
+    msg = QtWidgets.QMessageBox()
+    msg.setIcon(QtWidgets.QMessageBox.Information)
+    msg.setText("Drugs in this appointment")
+    msg.setInformativeText(s)
+    msg.setWindowTitle("Drug List")
+    msg.setStandardButtons(QtWidgets.QMessageBox.Ok)
+    msg.show()
+    retval = msg.exec_()
+
+
+# ---------------------- Lab Panel ----------------------
+def answer_test():
+    a = QtWidgets.QWidget()
+    test_id, id_ok = QtWidgets.QInputDialog.getText(a, 'Send Diagnose Report', 'Enter Test ID:')
+    test_result, res_ok = QtWidgets.QInputDialog.getMultiLineText(a, 'Send Diagnose Report', 'Enter diagnose report below:')
+    if id_ok and res_ok:
+        laboratory.set_diagnose_report(test_result, test_id, admin_cursor, admin_db)
+    sql = "SELECT * FROM Test"
+    admin_cursor.execute(sql)
+    result = admin_cursor.fetchall()
+    manager.fill_table(ui.Lab_Table, result)
 
 
 
@@ -343,6 +419,21 @@ if __name__ == "__main__":
 
     ui.pre_drug_btn.clicked.connect(presc_drugs)
 
+    ui.delete_freetime_btn.clicked.connect(partial(delete_free_time, ui))
+
+    ui.dr_emergency_btn.clicked.connect(dr_emergency)
+
+    ui.P_SendMessage.clicked.connect(partial(p_send_message, ui))
+
+    ui.P_ShowBedInfo.clicked.connect(partial(p_show_bed_info))
+
+    ui.Patient_ReserveAppointment.clicked.connect(partial(p_reserve, ui))
+
+    ui.P_ShowPrescription.clicked.connect(partial(p_show_prescription, ui))
+
+    ui.lab_send_result_btn.clicked.connect(answer_test)
+
+    # ui.Lab_Table.resizeRowsToContents()
     # ui.receiverid_txt
 
     sys.exit(app.exec_())
