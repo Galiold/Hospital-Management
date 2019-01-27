@@ -11,7 +11,7 @@ def set_patient_id(id):
 def p_reserve_appointment(appointment_id, cursor, db):
     sql = "UPDATE Appointments SET PatientID = %s WHERE AppointmentID = %s"
     cursor.execute(sql, (patient_id, appointment_id))
-    db.commit
+    db.commit()
 
 
 def show_prescription(appointment_id, cursor):
@@ -21,9 +21,9 @@ def show_prescription(appointment_id, cursor):
     return result
 
 
-def get_messages(cursor):
+def get_messages(id, cursor):
     sql = "select SenderID, ReceiverID, Text, Date FROM Messages where ReceiverID = %s OR SenderID = %s ORDER BY Date"
-    cursor.execute(sql, (patient_id, patient_id))
+    cursor.execute(sql, (id, id))
     result = cursor.fetchall()
     return result
 

@@ -11,14 +11,14 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(1105, 896)
+        MainWindow.resize(950, 812)
         MainWindow.setAutoFillBackground(False)
         MainWindow.setStyleSheet("background-color: #303841;")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setContextMenuPolicy(QtCore.Qt.DefaultContextMenu)
         self.centralwidget.setObjectName("centralwidget")
-        self.gridLayout = QtWidgets.QGridLayout(self.centralwidget)
-        self.gridLayout.setObjectName("gridLayout")
+        self.gridLayout_9 = QtWidgets.QGridLayout(self.centralwidget)
+        self.gridLayout_9.setObjectName("gridLayout_9")
         self.PageStack = QtWidgets.QStackedWidget(self.centralwidget)
         self.PageStack.setObjectName("PageStack")
         self.Login = QtWidgets.QWidget()
@@ -172,7 +172,7 @@ class Ui_MainWindow(object):
         self.verticalLayout = QtWidgets.QVBoxLayout()
         self.verticalLayout.setObjectName("verticalLayout")
         self.verticalLayout_4 = QtWidgets.QVBoxLayout()
-        self.verticalLayout_4.setContentsMargins(-1, 10, -1, 30)
+        self.verticalLayout_4.setContentsMargins(-1, 10, -1, 20)
         self.verticalLayout_4.setSpacing(0)
         self.verticalLayout_4.setObjectName("verticalLayout_4")
         self.register_lbl = QtWidgets.QLabel(self.frame_2)
@@ -322,6 +322,13 @@ class Ui_MainWindow(object):
 "}")
         self.submit_btn.setObjectName("submit_btn")
         self.verticalLayout_4.addWidget(self.submit_btn, 0, QtCore.Qt.AlignHCenter)
+        spacerItem4 = QtWidgets.QSpacerItem(20, 10, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed)
+        self.verticalLayout_4.addItem(spacerItem4)
+        self.register_back_btn = QtWidgets.QPushButton(self.frame_2)
+        self.register_back_btn.setStyleSheet("QPushButton{color:white;}\n"
+"QPushButton:hover{color: blue;}")
+        self.register_back_btn.setObjectName("register_back_btn")
+        self.verticalLayout_4.addWidget(self.register_back_btn)
         self.verticalLayout.addLayout(self.verticalLayout_4)
         self.verticalLayout_3.addLayout(self.verticalLayout)
         self.gridLayout_4.addWidget(self.frame_2, 0, 0, 1, 1)
@@ -373,8 +380,8 @@ class Ui_MainWindow(object):
         self.verticalLayout_8 = QtWidgets.QVBoxLayout()
         self.verticalLayout_8.setContentsMargins(-1, 50, -1, 50)
         self.verticalLayout_8.setObjectName("verticalLayout_8")
-        spacerItem4 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
-        self.verticalLayout_8.addItem(spacerItem4)
+        spacerItem5 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        self.verticalLayout_8.addItem(spacerItem5)
         self.approve_user_btn = QtWidgets.QPushButton(self.frame_3)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
@@ -417,8 +424,8 @@ class Ui_MainWindow(object):
 "}")
         self.delete_user_btn.setObjectName("delete_user_btn")
         self.verticalLayout_8.addWidget(self.delete_user_btn, 0, QtCore.Qt.AlignHCenter)
-        spacerItem5 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
-        self.verticalLayout_8.addItem(spacerItem5)
+        spacerItem6 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        self.verticalLayout_8.addItem(spacerItem6)
         self.add_user_btn = QtWidgets.QPushButton(self.frame_3)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
@@ -440,6 +447,23 @@ class Ui_MainWindow(object):
 "}")
         self.add_user_btn.setObjectName("add_user_btn")
         self.verticalLayout_8.addWidget(self.add_user_btn, 0, QtCore.Qt.AlignHCenter)
+        self.admin_exit_btn = QtWidgets.QPushButton(self.frame_3)
+        self.admin_exit_btn.setMinimumSize(QtCore.QSize(200, 50))
+        self.admin_exit_btn.setMaximumSize(QtCore.QSize(200, 16777215))
+        self.admin_exit_btn.setStyleSheet("QPushButton\n"
+"{\n"
+"    border: 2px solid #fff;\n"
+"    background-color: #96dae4;\n"
+"    color: #fff;\n"
+"}\n"
+"\n"
+"QPushButton:hover\n"
+"{\n"
+"    background-color: #FFF;\n"
+"    color: black;\n"
+"}")
+        self.admin_exit_btn.setObjectName("admin_exit_btn")
+        self.verticalLayout_8.addWidget(self.admin_exit_btn, 0, QtCore.Qt.AlignHCenter)
         self.horizontalLayout_2.addLayout(self.verticalLayout_8)
         self.verticalLayout_6.addLayout(self.horizontalLayout_2)
         self.verticalLayout_7.addLayout(self.verticalLayout_6)
@@ -515,31 +539,128 @@ class Ui_MainWindow(object):
         self.Reception_Page = QtWidgets.QWidget()
         self.Reception_Page.setObjectName("Reception_Page")
         self.reception_table = QtWidgets.QTableWidget(self.Reception_Page)
-        self.reception_table.setGeometry(QtCore.QRect(50, 130, 650, 650))
+        self.reception_table.setGeometry(QtCore.QRect(40, 100, 600, 500))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.reception_table.sizePolicy().hasHeightForWidth())
         self.reception_table.setSizePolicy(sizePolicy)
-        self.reception_table.setMinimumSize(QtCore.QSize(650, 650))
+        self.reception_table.setMinimumSize(QtCore.QSize(600, 500))
+        self.reception_table.setSizeIncrement(QtCore.QSize(600, 500))
         self.reception_table.setStyleSheet("background-color: white;")
         self.reception_table.setObjectName("reception_table")
         self.reception_table.setColumnCount(0)
         self.reception_table.setRowCount(0)
         self.delete_freetime_btn = QtWidgets.QPushButton(self.Reception_Page)
-        self.delete_freetime_btn.setGeometry(QtCore.QRect(870, 300, 113, 32))
+        self.delete_freetime_btn.setGeometry(QtCore.QRect(720, 180, 171, 51))
+        self.delete_freetime_btn.setStyleSheet("QPushButton\n"
+"{\n"
+"    border: 2px solid #fff;\n"
+"    background-color: #96dae4;\n"
+"    color: #fff;\n"
+"}\n"
+"\n"
+"QPushButton:hover\n"
+"{\n"
+"    background-color: #FFF;\n"
+"    color: black;\n"
+"}")
         self.delete_freetime_btn.setObjectName("delete_freetime_btn")
         self.add_freetime_btn = QtWidgets.QPushButton(self.Reception_Page)
-        self.add_freetime_btn.setGeometry(QtCore.QRect(870, 510, 113, 32))
+        self.add_freetime_btn.setGeometry(QtCore.QRect(710, 320, 181, 51))
+        self.add_freetime_btn.setStyleSheet("QPushButton\n"
+"{\n"
+"    border: 2px solid #fff;\n"
+"    background-color: #96dae4;\n"
+"    color: #fff;\n"
+"}\n"
+"\n"
+"QPushButton:hover\n"
+"{\n"
+"    background-color: #FFF;\n"
+"    color: black;\n"
+"}")
         self.add_freetime_btn.setObjectName("add_freetime_btn")
         self.clear_time_btn = QtWidgets.QPushButton(self.Reception_Page)
-        self.clear_time_btn.setGeometry(QtCore.QRect(850, 350, 161, 32))
+        self.clear_time_btn.setGeometry(QtCore.QRect(710, 250, 181, 51))
+        self.clear_time_btn.setStyleSheet("QPushButton\n"
+"{\n"
+"    border: 2px solid #fff;\n"
+"    background-color: #96dae4;\n"
+"    color: #fff;\n"
+"}\n"
+"\n"
+"QPushButton:hover\n"
+"{\n"
+"    background-color: #FFF;\n"
+"    color: black;\n"
+"}")
         self.clear_time_btn.setObjectName("clear_time_btn")
+        self.reception_edit_info_btn = QtWidgets.QPushButton(self.Reception_Page)
+        self.reception_edit_info_btn.setGeometry(QtCore.QRect(700, 400, 200, 50))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.reception_edit_info_btn.sizePolicy().hasHeightForWidth())
+        self.reception_edit_info_btn.setSizePolicy(sizePolicy)
+        self.reception_edit_info_btn.setMinimumSize(QtCore.QSize(200, 50))
+        font = QtGui.QFont()
+        font.setFamily("Calibri")
+        font.setPointSize(18)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setUnderline(False)
+        font.setWeight(50)
+        font.setKerning(True)
+        self.reception_edit_info_btn.setFont(font)
+        self.reception_edit_info_btn.setStyleSheet("QPushButton\n"
+"{\n"
+"    border: 2px solid #fff;\n"
+"    background-color: #96dae4;\n"
+"    color: #fff;\n"
+"}\n"
+"\n"
+"QPushButton:hover\n"
+"{\n"
+"    background-color: #FFF;\n"
+"    color: black;\n"
+"}")
+        self.reception_edit_info_btn.setObjectName("reception_edit_info_btn")
+        self.reception_exit_btn = QtWidgets.QPushButton(self.Reception_Page)
+        self.reception_exit_btn.setGeometry(QtCore.QRect(700, 470, 200, 50))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.reception_exit_btn.sizePolicy().hasHeightForWidth())
+        self.reception_exit_btn.setSizePolicy(sizePolicy)
+        self.reception_exit_btn.setMinimumSize(QtCore.QSize(200, 50))
+        font = QtGui.QFont()
+        font.setFamily("Calibri")
+        font.setPointSize(18)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setUnderline(False)
+        font.setWeight(50)
+        font.setKerning(True)
+        self.reception_exit_btn.setFont(font)
+        self.reception_exit_btn.setStyleSheet("QPushButton\n"
+"{\n"
+"    border: 2px solid #fff;\n"
+"    background-color: #96dae4;\n"
+"    color: #fff;\n"
+"}\n"
+"\n"
+"QPushButton:hover\n"
+"{\n"
+"    background-color: #FFF;\n"
+"    color: black;\n"
+"}")
+        self.reception_exit_btn.setObjectName("reception_exit_btn")
         self.PageStack.addWidget(self.Reception_Page)
         self.Pharmacy_Page = QtWidgets.QWidget()
         self.Pharmacy_Page.setObjectName("Pharmacy_Page")
         self.addDrug_btn = QtWidgets.QPushButton(self.Pharmacy_Page)
-        self.addDrug_btn.setGeometry(QtCore.QRect(780, 290, 256, 50))
+        self.addDrug_btn.setGeometry(QtCore.QRect(650, 130, 256, 50))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -569,7 +690,7 @@ class Ui_MainWindow(object):
 "}")
         self.addDrug_btn.setObjectName("addDrug_btn")
         self.deleteDrug_btn = QtWidgets.QPushButton(self.Pharmacy_Page)
-        self.deleteDrug_btn.setGeometry(QtCore.QRect(780, 380, 256, 50))
+        self.deleteDrug_btn.setGeometry(QtCore.QRect(650, 210, 256, 50))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -599,7 +720,7 @@ class Ui_MainWindow(object):
 "}")
         self.deleteDrug_btn.setObjectName("deleteDrug_btn")
         self.filterDrug_btn = QtWidgets.QPushButton(self.Pharmacy_Page)
-        self.filterDrug_btn.setGeometry(QtCore.QRect(780, 490, 256, 50))
+        self.filterDrug_btn.setGeometry(QtCore.QRect(650, 280, 256, 50))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -629,7 +750,7 @@ class Ui_MainWindow(object):
 "}")
         self.filterDrug_btn.setObjectName("filterDrug_btn")
         self.pPresc_btn = QtWidgets.QPushButton(self.Pharmacy_Page)
-        self.pPresc_btn.setGeometry(QtCore.QRect(780, 590, 256, 50))
+        self.pPresc_btn.setGeometry(QtCore.QRect(650, 360, 256, 50))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -659,22 +780,83 @@ class Ui_MainWindow(object):
 "}")
         self.pPresc_btn.setObjectName("pPresc_btn")
         self.drugs_table = QtWidgets.QTableWidget(self.Pharmacy_Page)
-        self.drugs_table.setGeometry(QtCore.QRect(100, 130, 650, 650))
+        self.drugs_table.setGeometry(QtCore.QRect(20, 120, 600, 500))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.drugs_table.sizePolicy().hasHeightForWidth())
         self.drugs_table.setSizePolicy(sizePolicy)
-        self.drugs_table.setMinimumSize(QtCore.QSize(650, 650))
+        self.drugs_table.setMinimumSize(QtCore.QSize(600, 500))
+        self.drugs_table.setSizeIncrement(QtCore.QSize(600, 500))
         self.drugs_table.setStyleSheet("background-color: white;")
         self.drugs_table.setObjectName("drugs_table")
         self.drugs_table.setColumnCount(0)
         self.drugs_table.setRowCount(0)
+        self.pharmacy_edit_info_btn = QtWidgets.QPushButton(self.Pharmacy_Page)
+        self.pharmacy_edit_info_btn.setGeometry(QtCore.QRect(680, 440, 200, 50))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.pharmacy_edit_info_btn.sizePolicy().hasHeightForWidth())
+        self.pharmacy_edit_info_btn.setSizePolicy(sizePolicy)
+        self.pharmacy_edit_info_btn.setMinimumSize(QtCore.QSize(200, 50))
+        font = QtGui.QFont()
+        font.setFamily("Calibri")
+        font.setPointSize(18)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setUnderline(False)
+        font.setWeight(50)
+        font.setKerning(True)
+        self.pharmacy_edit_info_btn.setFont(font)
+        self.pharmacy_edit_info_btn.setStyleSheet("QPushButton\n"
+"{\n"
+"    border: 2px solid #fff;\n"
+"    background-color: #96dae4;\n"
+"    color: #fff;\n"
+"}\n"
+"\n"
+"QPushButton:hover\n"
+"{\n"
+"    background-color: #FFF;\n"
+"    color: black;\n"
+"}")
+        self.pharmacy_edit_info_btn.setObjectName("pharmacy_edit_info_btn")
+        self.phar_exit_btn = QtWidgets.QPushButton(self.Pharmacy_Page)
+        self.phar_exit_btn.setGeometry(QtCore.QRect(680, 520, 200, 50))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.phar_exit_btn.sizePolicy().hasHeightForWidth())
+        self.phar_exit_btn.setSizePolicy(sizePolicy)
+        self.phar_exit_btn.setMinimumSize(QtCore.QSize(200, 50))
+        font = QtGui.QFont()
+        font.setFamily("Calibri")
+        font.setPointSize(18)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setUnderline(False)
+        font.setWeight(50)
+        font.setKerning(True)
+        self.phar_exit_btn.setFont(font)
+        self.phar_exit_btn.setStyleSheet("QPushButton\n"
+"{\n"
+"    border: 2px solid #fff;\n"
+"    background-color: #96dae4;\n"
+"    color: #fff;\n"
+"}\n"
+"\n"
+"QPushButton:hover\n"
+"{\n"
+"    background-color: #FFF;\n"
+"    color: black;\n"
+"}")
+        self.phar_exit_btn.setObjectName("phar_exit_btn")
         self.PageStack.addWidget(self.Pharmacy_Page)
         self.Dr_Page = QtWidgets.QWidget()
         self.Dr_Page.setObjectName("Dr_Page")
         self.dr_approve_btn = QtWidgets.QPushButton(self.Dr_Page)
-        self.dr_approve_btn.setGeometry(QtCore.QRect(800, 90, 256, 50))
+        self.dr_approve_btn.setGeometry(QtCore.QRect(650, 20, 256, 50))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -704,7 +886,7 @@ class Ui_MainWindow(object):
 "}")
         self.dr_approve_btn.setObjectName("dr_approve_btn")
         self.dr_delete_btn = QtWidgets.QPushButton(self.Dr_Page)
-        self.dr_delete_btn.setGeometry(QtCore.QRect(800, 150, 256, 50))
+        self.dr_delete_btn.setGeometry(QtCore.QRect(650, 80, 256, 50))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -734,7 +916,7 @@ class Ui_MainWindow(object):
 "}")
         self.dr_delete_btn.setObjectName("dr_delete_btn")
         self.drug_history_btn = QtWidgets.QPushButton(self.Dr_Page)
-        self.drug_history_btn.setGeometry(QtCore.QRect(800, 400, 256, 50))
+        self.drug_history_btn.setGeometry(QtCore.QRect(650, 330, 256, 50))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -764,7 +946,7 @@ class Ui_MainWindow(object):
 "}")
         self.drug_history_btn.setObjectName("drug_history_btn")
         self.dr_sendmessage_btn = QtWidgets.QPushButton(self.Dr_Page)
-        self.dr_sendmessage_btn.setGeometry(QtCore.QRect(800, 610, 256, 50))
+        self.dr_sendmessage_btn.setGeometry(QtCore.QRect(650, 540, 256, 50))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -794,7 +976,7 @@ class Ui_MainWindow(object):
 "}")
         self.dr_sendmessage_btn.setObjectName("dr_sendmessage_btn")
         self.dr_appmnts_table = QtWidgets.QTableWidget(self.Dr_Page)
-        self.dr_appmnts_table.setGeometry(QtCore.QRect(100, 170, 600, 500))
+        self.dr_appmnts_table.setGeometry(QtCore.QRect(20, 110, 600, 500))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -828,7 +1010,7 @@ class Ui_MainWindow(object):
         self.dr_appmnts_table.verticalHeader().setVisible(False)
         self.dr_appmnts_table.verticalHeader().setStretchLastSection(False)
         self.dr_exit_btn = QtWidgets.QPushButton(self.Dr_Page)
-        self.dr_exit_btn.setGeometry(QtCore.QRect(800, 750, 256, 50))
+        self.dr_exit_btn.setGeometry(QtCore.QRect(650, 660, 256, 50))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -858,7 +1040,7 @@ class Ui_MainWindow(object):
 "}")
         self.dr_exit_btn.setObjectName("dr_exit_btn")
         self.dr_addfree_btn = QtWidgets.QPushButton(self.Dr_Page)
-        self.dr_addfree_btn.setGeometry(QtCore.QRect(800, 210, 256, 50))
+        self.dr_addfree_btn.setGeometry(QtCore.QRect(650, 140, 256, 50))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -888,7 +1070,7 @@ class Ui_MainWindow(object):
 "}")
         self.dr_addfree_btn.setObjectName("dr_addfree_btn")
         self.dr_delfree_btn = QtWidgets.QPushButton(self.Dr_Page)
-        self.dr_delfree_btn.setGeometry(QtCore.QRect(800, 270, 256, 50))
+        self.dr_delfree_btn.setGeometry(QtCore.QRect(650, 200, 256, 50))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -918,7 +1100,7 @@ class Ui_MainWindow(object):
 "}")
         self.dr_delfree_btn.setObjectName("dr_delfree_btn")
         self.pre_drug_btn = QtWidgets.QPushButton(self.Dr_Page)
-        self.pre_drug_btn.setGeometry(QtCore.QRect(800, 340, 256, 50))
+        self.pre_drug_btn.setGeometry(QtCore.QRect(650, 270, 256, 50))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -948,7 +1130,7 @@ class Ui_MainWindow(object):
 "}")
         self.pre_drug_btn.setObjectName("pre_drug_btn")
         self.pre_test_btn = QtWidgets.QPushButton(self.Dr_Page)
-        self.pre_test_btn.setGeometry(QtCore.QRect(800, 470, 256, 50))
+        self.pre_test_btn.setGeometry(QtCore.QRect(650, 400, 256, 50))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -978,7 +1160,7 @@ class Ui_MainWindow(object):
 "}")
         self.pre_test_btn.setObjectName("pre_test_btn")
         self.dr_emergency_btn = QtWidgets.QPushButton(self.Dr_Page)
-        self.dr_emergency_btn.setGeometry(QtCore.QRect(800, 670, 256, 50))
+        self.dr_emergency_btn.setGeometry(QtCore.QRect(650, 600, 256, 50))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -1008,7 +1190,7 @@ class Ui_MainWindow(object):
 "}")
         self.dr_emergency_btn.setObjectName("dr_emergency_btn")
         self.pre_test_btn_2 = QtWidgets.QPushButton(self.Dr_Page)
-        self.pre_test_btn_2.setGeometry(QtCore.QRect(800, 530, 256, 50))
+        self.pre_test_btn_2.setGeometry(QtCore.QRect(650, 460, 256, 50))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -1037,15 +1219,45 @@ class Ui_MainWindow(object):
 "    color: black;\n"
 "}")
         self.pre_test_btn_2.setObjectName("pre_test_btn_2")
+        self.dr_edit_info_btn = QtWidgets.QPushButton(self.Dr_Page)
+        self.dr_edit_info_btn.setGeometry(QtCore.QRect(210, 650, 200, 50))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.dr_edit_info_btn.sizePolicy().hasHeightForWidth())
+        self.dr_edit_info_btn.setSizePolicy(sizePolicy)
+        self.dr_edit_info_btn.setMinimumSize(QtCore.QSize(200, 50))
+        font = QtGui.QFont()
+        font.setFamily("Calibri")
+        font.setPointSize(18)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setUnderline(False)
+        font.setWeight(50)
+        font.setKerning(True)
+        self.dr_edit_info_btn.setFont(font)
+        self.dr_edit_info_btn.setStyleSheet("QPushButton\n"
+"{\n"
+"    border: 2px solid #fff;\n"
+"    background-color: #96dae4;\n"
+"    color: #fff;\n"
+"}\n"
+"\n"
+"QPushButton:hover\n"
+"{\n"
+"    background-color: #FFF;\n"
+"    color: black;\n"
+"}")
+        self.dr_edit_info_btn.setObjectName("dr_edit_info_btn")
         self.PageStack.addWidget(self.Dr_Page)
         self.Messages = QtWidgets.QWidget()
         self.Messages.setObjectName("Messages")
         self.messsage_txt = QtWidgets.QTextEdit(self.Messages)
-        self.messsage_txt.setGeometry(QtCore.QRect(60, 730, 651, 51))
+        self.messsage_txt.setGeometry(QtCore.QRect(140, 520, 371, 171))
         self.messsage_txt.setStyleSheet("background-color: white; color: black;")
         self.messsage_txt.setObjectName("messsage_txt")
         self.sendmessage_btn = QtWidgets.QPushButton(self.Messages)
-        self.sendmessage_btn.setGeometry(QtCore.QRect(876, 730, 200, 50))
+        self.sendmessage_btn.setGeometry(QtCore.QRect(530, 580, 200, 50))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -1075,7 +1287,7 @@ class Ui_MainWindow(object):
 "}")
         self.sendmessage_btn.setObjectName("sendmessage_btn")
         self.message_table = QtWidgets.QTableWidget(self.Messages)
-        self.message_table.setGeometry(QtCore.QRect(290, 150, 600, 500))
+        self.message_table.setGeometry(QtCore.QRect(140, 10, 600, 500))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Minimum)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -1085,7 +1297,7 @@ class Ui_MainWindow(object):
         self.message_table.setMaximumSize(QtCore.QSize(600, 500))
         self.message_table.setStyleSheet("background-color: white;")
         self.message_table.setObjectName("message_table")
-        self.message_table.setColumnCount(5)
+        self.message_table.setColumnCount(4)
         self.message_table.setRowCount(0)
         item = QtWidgets.QTableWidgetItem()
         self.message_table.setHorizontalHeaderItem(0, item)
@@ -1095,20 +1307,48 @@ class Ui_MainWindow(object):
         self.message_table.setHorizontalHeaderItem(2, item)
         item = QtWidgets.QTableWidgetItem()
         self.message_table.setHorizontalHeaderItem(3, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.message_table.setHorizontalHeaderItem(4, item)
-        self.message_table.horizontalHeader().setDefaultSectionSize(120)
+        self.message_table.horizontalHeader().setDefaultSectionSize(149)
         self.message_table.horizontalHeader().setMinimumSectionSize(50)
         self.message_table.horizontalHeader().setStretchLastSection(True)
         self.receiverid_txt = QtWidgets.QTextEdit(self.Messages)
-        self.receiverid_txt.setGeometry(QtCore.QRect(730, 730, 111, 51))
+        self.receiverid_txt.setGeometry(QtCore.QRect(530, 520, 201, 51))
         self.receiverid_txt.setStyleSheet("background-color: white; color: black;")
         self.receiverid_txt.setObjectName("receiverid_txt")
+        self.msg_back_btn = QtWidgets.QPushButton(self.Messages)
+        self.msg_back_btn.setGeometry(QtCore.QRect(530, 640, 200, 50))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.msg_back_btn.sizePolicy().hasHeightForWidth())
+        self.msg_back_btn.setSizePolicy(sizePolicy)
+        self.msg_back_btn.setMinimumSize(QtCore.QSize(200, 50))
+        font = QtGui.QFont()
+        font.setFamily("Calibri")
+        font.setPointSize(18)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setUnderline(False)
+        font.setWeight(50)
+        font.setKerning(True)
+        self.msg_back_btn.setFont(font)
+        self.msg_back_btn.setStyleSheet("QPushButton\n"
+"{\n"
+"    border: 2px solid #fff;\n"
+"    background-color: #96dae4;\n"
+"    color: #fff;\n"
+"}\n"
+"\n"
+"QPushButton:hover\n"
+"{\n"
+"    background-color: #FFF;\n"
+"    color: black;\n"
+"}")
+        self.msg_back_btn.setObjectName("msg_back_btn")
         self.PageStack.addWidget(self.Messages)
         self.PatientPage = QtWidgets.QWidget()
         self.PatientPage.setObjectName("PatientPage")
         self.Patient_ReserveAppointment = QtWidgets.QPushButton(self.PatientPage)
-        self.Patient_ReserveAppointment.setGeometry(QtCore.QRect(780, 270, 200, 50))
+        self.Patient_ReserveAppointment.setGeometry(QtCore.QRect(670, 120, 200, 50))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -1138,7 +1378,7 @@ class Ui_MainWindow(object):
 "}")
         self.Patient_ReserveAppointment.setObjectName("Patient_ReserveAppointment")
         self.P_ShowPrescription = QtWidgets.QPushButton(self.PatientPage)
-        self.P_ShowPrescription.setGeometry(QtCore.QRect(780, 340, 200, 50))
+        self.P_ShowPrescription.setGeometry(QtCore.QRect(670, 190, 200, 50))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -1168,7 +1408,7 @@ class Ui_MainWindow(object):
 "}")
         self.P_ShowPrescription.setObjectName("P_ShowPrescription")
         self.P_SendMessage = QtWidgets.QPushButton(self.PatientPage)
-        self.P_SendMessage.setGeometry(QtCore.QRect(780, 410, 200, 50))
+        self.P_SendMessage.setGeometry(QtCore.QRect(670, 290, 200, 50))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -1198,7 +1438,7 @@ class Ui_MainWindow(object):
 "}")
         self.P_SendMessage.setObjectName("P_SendMessage")
         self.P_Exit = QtWidgets.QPushButton(self.PatientPage)
-        self.P_Exit.setGeometry(QtCore.QRect(780, 580, 200, 50))
+        self.P_Exit.setGeometry(QtCore.QRect(670, 510, 200, 50))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -1228,7 +1468,7 @@ class Ui_MainWindow(object):
 "}")
         self.P_Exit.setObjectName("P_Exit")
         self.P_AppointmentsTable = QtWidgets.QTableWidget(self.PatientPage)
-        self.P_AppointmentsTable.setGeometry(QtCore.QRect(120, 170, 600, 500))
+        self.P_AppointmentsTable.setGeometry(QtCore.QRect(40, 80, 600, 500))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -1256,7 +1496,7 @@ class Ui_MainWindow(object):
         self.P_AppointmentsTable.verticalHeader().setVisible(False)
         self.P_ShowBedInfo = QtWidgets.QPushButton(self.PatientPage)
         self.P_ShowBedInfo.setEnabled(True)
-        self.P_ShowBedInfo.setGeometry(QtCore.QRect(780, 480, 200, 50))
+        self.P_ShowBedInfo.setGeometry(QtCore.QRect(670, 360, 200, 50))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -1285,11 +1525,41 @@ class Ui_MainWindow(object):
 "    color: black;\n"
 "}")
         self.P_ShowBedInfo.setObjectName("P_ShowBedInfo")
+        self.patient_edit_info_btn_2 = QtWidgets.QPushButton(self.PatientPage)
+        self.patient_edit_info_btn_2.setGeometry(QtCore.QRect(670, 440, 200, 50))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.patient_edit_info_btn_2.sizePolicy().hasHeightForWidth())
+        self.patient_edit_info_btn_2.setSizePolicy(sizePolicy)
+        self.patient_edit_info_btn_2.setMinimumSize(QtCore.QSize(200, 50))
+        font = QtGui.QFont()
+        font.setFamily("Calibri")
+        font.setPointSize(18)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setUnderline(False)
+        font.setWeight(50)
+        font.setKerning(True)
+        self.patient_edit_info_btn_2.setFont(font)
+        self.patient_edit_info_btn_2.setStyleSheet("QPushButton\n"
+"{\n"
+"    border: 2px solid #fff;\n"
+"    background-color: #96dae4;\n"
+"    color: #fff;\n"
+"}\n"
+"\n"
+"QPushButton:hover\n"
+"{\n"
+"    background-color: #FFF;\n"
+"    color: black;\n"
+"}")
+        self.patient_edit_info_btn_2.setObjectName("patient_edit_info_btn_2")
         self.PageStack.addWidget(self.PatientPage)
         self.LabPage = QtWidgets.QWidget()
         self.LabPage.setObjectName("LabPage")
         self.Lab_Table = QtWidgets.QTableWidget(self.LabPage)
-        self.Lab_Table.setGeometry(QtCore.QRect(130, 170, 600, 500))
+        self.Lab_Table.setGeometry(QtCore.QRect(50, 60, 600, 500))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -1310,12 +1580,13 @@ class Ui_MainWindow(object):
         self.Lab_Table.setHorizontalHeaderItem(2, item)
         item = QtWidgets.QTableWidgetItem()
         self.Lab_Table.setHorizontalHeaderItem(3, item)
-        self.Lab_Table.horizontalHeader().setCascadingSectionResizes(True)
-        self.Lab_Table.horizontalHeader().setDefaultSectionSize(150)
+        self.Lab_Table.horizontalHeader().setCascadingSectionResizes(False)
+        self.Lab_Table.horizontalHeader().setDefaultSectionSize(149)
         self.Lab_Table.horizontalHeader().setSortIndicatorShown(True)
+        self.Lab_Table.horizontalHeader().setStretchLastSection(True)
         self.Lab_Table.verticalHeader().setVisible(False)
         self.lab_send_result_btn = QtWidgets.QPushButton(self.LabPage)
-        self.lab_send_result_btn.setGeometry(QtCore.QRect(790, 430, 200, 50))
+        self.lab_send_result_btn.setGeometry(QtCore.QRect(680, 170, 200, 50))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -1344,16 +1615,264 @@ class Ui_MainWindow(object):
 "    color: black;\n"
 "}")
         self.lab_send_result_btn.setObjectName("lab_send_result_btn")
+        self.lab_exit_btn = QtWidgets.QPushButton(self.LabPage)
+        self.lab_exit_btn.setGeometry(QtCore.QRect(680, 430, 200, 50))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.lab_exit_btn.sizePolicy().hasHeightForWidth())
+        self.lab_exit_btn.setSizePolicy(sizePolicy)
+        self.lab_exit_btn.setMinimumSize(QtCore.QSize(200, 50))
+        font = QtGui.QFont()
+        font.setFamily("Calibri")
+        font.setPointSize(18)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setUnderline(False)
+        font.setWeight(50)
+        font.setKerning(True)
+        self.lab_exit_btn.setFont(font)
+        self.lab_exit_btn.setStyleSheet("QPushButton\n"
+"{\n"
+"    border: 2px solid #fff;\n"
+"    background-color: #96dae4;\n"
+"    color: #fff;\n"
+"}\n"
+"\n"
+"QPushButton:hover\n"
+"{\n"
+"    background-color: #FFF;\n"
+"    color: black;\n"
+"}")
+        self.lab_exit_btn.setObjectName("lab_exit_btn")
+        self.lab_edit_info_btn_2 = QtWidgets.QPushButton(self.LabPage)
+        self.lab_edit_info_btn_2.setGeometry(QtCore.QRect(680, 300, 200, 50))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.lab_edit_info_btn_2.sizePolicy().hasHeightForWidth())
+        self.lab_edit_info_btn_2.setSizePolicy(sizePolicy)
+        self.lab_edit_info_btn_2.setMinimumSize(QtCore.QSize(200, 50))
+        font = QtGui.QFont()
+        font.setFamily("Calibri")
+        font.setPointSize(18)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setUnderline(False)
+        font.setWeight(50)
+        font.setKerning(True)
+        self.lab_edit_info_btn_2.setFont(font)
+        self.lab_edit_info_btn_2.setStyleSheet("QPushButton\n"
+"{\n"
+"    border: 2px solid #fff;\n"
+"    background-color: #96dae4;\n"
+"    color: #fff;\n"
+"}\n"
+"\n"
+"QPushButton:hover\n"
+"{\n"
+"    background-color: #FFF;\n"
+"    color: black;\n"
+"}")
+        self.lab_edit_info_btn_2.setObjectName("lab_edit_info_btn_2")
         self.PageStack.addWidget(self.LabPage)
-        self.gridLayout.addWidget(self.PageStack, 0, 0, 1, 1)
+        self.Complete_Info_Page = QtWidgets.QWidget()
+        self.Complete_Info_Page.setObjectName("Complete_Info_Page")
+        self.gridLayout = QtWidgets.QGridLayout(self.Complete_Info_Page)
+        self.gridLayout.setObjectName("gridLayout")
+        self.gridLayout_8 = QtWidgets.QGridLayout()
+        self.gridLayout_8.setObjectName("gridLayout_8")
+        self.frame_5 = QtWidgets.QFrame(self.Complete_Info_Page)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.frame_5.sizePolicy().hasHeightForWidth())
+        self.frame_5.setSizePolicy(sizePolicy)
+        self.frame_5.setMinimumSize(QtCore.QSize(300, 600))
+        self.frame_5.setSizeIncrement(QtCore.QSize(200, 500))
+        self.frame_5.setStyleSheet("background-color: #11999e;\n"
+"border-radius: 10px")
+        self.frame_5.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_5.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_5.setObjectName("frame_5")
+        self.verticalLayout_11 = QtWidgets.QVBoxLayout(self.frame_5)
+        self.verticalLayout_11.setObjectName("verticalLayout_11")
+        self.verticalLayout_12 = QtWidgets.QVBoxLayout()
+        self.verticalLayout_12.setObjectName("verticalLayout_12")
+        self.label_5 = QtWidgets.QLabel(self.frame_5)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.label_5.sizePolicy().hasHeightForWidth())
+        self.label_5.setSizePolicy(sizePolicy)
+        font = QtGui.QFont()
+        font.setPointSize(20)
+        self.label_5.setFont(font)
+        self.label_5.setStyleSheet("color: white;")
+        self.label_5.setObjectName("label_5")
+        self.verticalLayout_12.addWidget(self.label_5, 0, QtCore.Qt.AlignHCenter)
+        self.edit_dob = QtWidgets.QTextEdit(self.frame_5)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.edit_dob.sizePolicy().hasHeightForWidth())
+        self.edit_dob.setSizePolicy(sizePolicy)
+        self.edit_dob.setMinimumSize(QtCore.QSize(200, 50))
+        self.edit_dob.setMaximumSize(QtCore.QSize(200, 50))
+        font = QtGui.QFont()
+        font.setPointSize(15)
+        self.edit_dob.setFont(font)
+        self.edit_dob.setStyleSheet("border: 2px solid #fff;\n"
+"color: #fff; margin:0;")
+        self.edit_dob.setInputMethodHints(QtCore.Qt.ImhNone)
+        self.edit_dob.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
+        self.edit_dob.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAsNeeded)
+        self.edit_dob.setTabChangesFocus(True)
+        self.edit_dob.setObjectName("edit_dob")
+        self.verticalLayout_12.addWidget(self.edit_dob, 0, QtCore.Qt.AlignHCenter)
+        self.edit_address = QtWidgets.QTextEdit(self.frame_5)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.edit_address.sizePolicy().hasHeightForWidth())
+        self.edit_address.setSizePolicy(sizePolicy)
+        self.edit_address.setMinimumSize(QtCore.QSize(200, 50))
+        self.edit_address.setMaximumSize(QtCore.QSize(200, 50))
+        font = QtGui.QFont()
+        font.setPointSize(15)
+        self.edit_address.setFont(font)
+        self.edit_address.setStyleSheet("border: 2px solid #fff;\n"
+"color: #fff; margin:0;")
+        self.edit_address.setInputMethodHints(QtCore.Qt.ImhNone)
+        self.edit_address.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
+        self.edit_address.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAsNeeded)
+        self.edit_address.setTabChangesFocus(True)
+        self.edit_address.setObjectName("edit_address")
+        self.verticalLayout_12.addWidget(self.edit_address, 0, QtCore.Qt.AlignHCenter)
+        self.edit_zipcode = QtWidgets.QTextEdit(self.frame_5)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.edit_zipcode.sizePolicy().hasHeightForWidth())
+        self.edit_zipcode.setSizePolicy(sizePolicy)
+        self.edit_zipcode.setMinimumSize(QtCore.QSize(200, 50))
+        self.edit_zipcode.setMaximumSize(QtCore.QSize(200, 50))
+        font = QtGui.QFont()
+        font.setPointSize(15)
+        self.edit_zipcode.setFont(font)
+        self.edit_zipcode.setStyleSheet("border: 2px solid #fff;\n"
+"color: #fff; margin:0;")
+        self.edit_zipcode.setInputMethodHints(QtCore.Qt.ImhNone)
+        self.edit_zipcode.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
+        self.edit_zipcode.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAsNeeded)
+        self.edit_zipcode.setTabChangesFocus(True)
+        self.edit_zipcode.setObjectName("edit_zipcode")
+        self.verticalLayout_12.addWidget(self.edit_zipcode, 0, QtCore.Qt.AlignHCenter)
+        self.edit_sex = QtWidgets.QTextEdit(self.frame_5)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.edit_sex.sizePolicy().hasHeightForWidth())
+        self.edit_sex.setSizePolicy(sizePolicy)
+        self.edit_sex.setMinimumSize(QtCore.QSize(200, 50))
+        self.edit_sex.setMaximumSize(QtCore.QSize(200, 50))
+        font = QtGui.QFont()
+        font.setPointSize(15)
+        self.edit_sex.setFont(font)
+        self.edit_sex.setStyleSheet("border: 2px solid #fff;\n"
+"color: #fff; margin:0;")
+        self.edit_sex.setInputMethodHints(QtCore.Qt.ImhNone)
+        self.edit_sex.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
+        self.edit_sex.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAsNeeded)
+        self.edit_sex.setTabChangesFocus(True)
+        self.edit_sex.setObjectName("edit_sex")
+        self.verticalLayout_12.addWidget(self.edit_sex, 0, QtCore.Qt.AlignHCenter)
+        self.edit_height = QtWidgets.QTextEdit(self.frame_5)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.edit_height.sizePolicy().hasHeightForWidth())
+        self.edit_height.setSizePolicy(sizePolicy)
+        self.edit_height.setMinimumSize(QtCore.QSize(200, 50))
+        self.edit_height.setMaximumSize(QtCore.QSize(200, 50))
+        font = QtGui.QFont()
+        font.setPointSize(15)
+        self.edit_height.setFont(font)
+        self.edit_height.setStyleSheet("border: 2px solid #fff;\n"
+"color: #fff; margin:0;")
+        self.edit_height.setInputMethodHints(QtCore.Qt.ImhNone)
+        self.edit_height.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
+        self.edit_height.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAsNeeded)
+        self.edit_height.setTabChangesFocus(True)
+        self.edit_height.setObjectName("edit_height")
+        self.verticalLayout_12.addWidget(self.edit_height, 0, QtCore.Qt.AlignHCenter)
+        self.edit_weight = QtWidgets.QTextEdit(self.frame_5)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.edit_weight.sizePolicy().hasHeightForWidth())
+        self.edit_weight.setSizePolicy(sizePolicy)
+        self.edit_weight.setMinimumSize(QtCore.QSize(200, 50))
+        self.edit_weight.setMaximumSize(QtCore.QSize(200, 50))
+        font = QtGui.QFont()
+        font.setPointSize(15)
+        self.edit_weight.setFont(font)
+        self.edit_weight.setStyleSheet("border: 2px solid #fff;\n"
+"color: #fff; margin:0;")
+        self.edit_weight.setInputMethodHints(QtCore.Qt.ImhNone)
+        self.edit_weight.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
+        self.edit_weight.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAsNeeded)
+        self.edit_weight.setTabChangesFocus(True)
+        self.edit_weight.setObjectName("edit_weight")
+        self.verticalLayout_12.addWidget(self.edit_weight, 0, QtCore.Qt.AlignHCenter)
+        self.update_info_btn = QtWidgets.QPushButton(self.frame_5)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.update_info_btn.sizePolicy().hasHeightForWidth())
+        self.update_info_btn.setSizePolicy(sizePolicy)
+        self.update_info_btn.setMinimumSize(QtCore.QSize(200, 50))
+        font = QtGui.QFont()
+        font.setFamily("Calibri")
+        font.setPointSize(18)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setUnderline(False)
+        font.setWeight(50)
+        font.setKerning(True)
+        self.update_info_btn.setFont(font)
+        self.update_info_btn.setStyleSheet("QPushButton\n"
+"{\n"
+"    border: 2px solid #fff;\n"
+"    background-color: #96dae4;\n"
+"    color: #fff;\n"
+"}\n"
+"\n"
+"QPushButton:hover\n"
+"{\n"
+"    background-color: #FFF;\n"
+"    color: black;\n"
+"}")
+        self.update_info_btn.setObjectName("update_info_btn")
+        self.verticalLayout_12.addWidget(self.update_info_btn, 0, QtCore.Qt.AlignHCenter)
+        self.back_btn = QtWidgets.QPushButton(self.frame_5)
+        self.back_btn.setStyleSheet("QPushButton{color:white;}\n"
+"QPushButton:hover{color: blue;}")
+        self.back_btn.setObjectName("back_btn")
+        self.verticalLayout_12.addWidget(self.back_btn)
+        self.verticalLayout_11.addLayout(self.verticalLayout_12)
+        self.gridLayout_8.addWidget(self.frame_5, 0, 0, 1, 1)
+        self.gridLayout.addLayout(self.gridLayout_8, 2, 0, 1, 1)
+        self.PageStack.addWidget(self.Complete_Info_Page)
+        self.gridLayout_9.addWidget(self.PageStack, 0, 1, 1, 1)
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 1105, 22))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 950, 22))
         self.menubar.setObjectName("menubar")
         MainWindow.setMenuBar(self.menubar)
 
         self.retranslateUi(MainWindow)
-        self.PageStack.setCurrentIndex(9)
+        self.PageStack.setCurrentIndex(7)
         self.selected_role.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
@@ -1382,19 +1901,25 @@ class Ui_MainWindow(object):
         self.selected_role.setItemText(6, _translate("MainWindow", "Reception"))
         self.selected_role.setItemText(7, _translate("MainWindow", "Laboratory"))
         self.submit_btn.setText(_translate("MainWindow", "Submit"))
+        self.register_back_btn.setText(_translate("MainWindow", "Back"))
         self.AdminPanel.setText(_translate("MainWindow", "Adminstration Panel"))
         self.approve_user_btn.setText(_translate("MainWindow", "Approve User"))
         self.delete_user_btn.setText(_translate("MainWindow", "Delete User"))
         self.add_user_btn.setText(_translate("MainWindow", "Add New User"))
+        self.admin_exit_btn.setText(_translate("MainWindow", "Exit"))
         self.label_7.setText(_translate("MainWindow", "Enter your email here, we will send you a new password."))
         self.recovery_submit_btn.setText(_translate("MainWindow", "Submit"))
         self.delete_freetime_btn.setText(_translate("MainWindow", "Delete Free Time"))
         self.add_freetime_btn.setText(_translate("MainWindow", "Add Free Time"))
         self.clear_time_btn.setText(_translate("MainWindow", "Delete Appointment"))
+        self.reception_edit_info_btn.setText(_translate("MainWindow", "Edit Info"))
+        self.reception_exit_btn.setText(_translate("MainWindow", "Exit"))
         self.addDrug_btn.setText(_translate("MainWindow", "Add"))
         self.deleteDrug_btn.setText(_translate("MainWindow", "Delete"))
         self.filterDrug_btn.setText(_translate("MainWindow", "Filter"))
         self.pPresc_btn.setText(_translate("MainWindow", "Process Prescription"))
+        self.pharmacy_edit_info_btn.setText(_translate("MainWindow", "Edit Info"))
+        self.phar_exit_btn.setText(_translate("MainWindow", "Exit"))
         self.dr_approve_btn.setText(_translate("MainWindow", "Approve Appointment"))
         self.dr_delete_btn.setText(_translate("MainWindow", "Delete Appointment"))
         self.drug_history_btn.setText(_translate("MainWindow", "Patient Drug Usage History"))
@@ -1417,17 +1942,16 @@ class Ui_MainWindow(object):
         self.pre_test_btn.setText(_translate("MainWindow", "Prescribe Test"))
         self.dr_emergency_btn.setText(_translate("MainWindow", "Emergency Situation"))
         self.pre_test_btn_2.setText(_translate("MainWindow", "Show Test Result"))
+        self.dr_edit_info_btn.setText(_translate("MainWindow", "Edit Info"))
         self.messsage_txt.setPlaceholderText(_translate("MainWindow", "Message"))
         self.sendmessage_btn.setText(_translate("MainWindow", "Send"))
         item = self.message_table.horizontalHeaderItem(0)
-        item.setText(_translate("MainWindow", "Message ID"))
-        item = self.message_table.horizontalHeaderItem(1)
         item.setText(_translate("MainWindow", "Sender ID"))
-        item = self.message_table.horizontalHeaderItem(2)
+        item = self.message_table.horizontalHeaderItem(1)
         item.setText(_translate("MainWindow", "Receiver ID"))
-        item = self.message_table.horizontalHeaderItem(3)
+        item = self.message_table.horizontalHeaderItem(2)
         item.setText(_translate("MainWindow", "Text"))
-        item = self.message_table.horizontalHeaderItem(4)
+        item = self.message_table.horizontalHeaderItem(3)
         item.setText(_translate("MainWindow", "Date"))
         self.receiverid_txt.setHtml(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
@@ -1435,6 +1959,7 @@ class Ui_MainWindow(object):
 "</style></head><body style=\" font-family:\'.SF NS Text\'; font-size:13pt; font-weight:400; font-style:normal;\">\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:20pt;\"><br /></p></body></html>"))
         self.receiverid_txt.setPlaceholderText(_translate("MainWindow", "Reciever ID"))
+        self.msg_back_btn.setText(_translate("MainWindow", "Back"))
         self.Patient_ReserveAppointment.setText(_translate("MainWindow", "Reserve Appointment"))
         self.P_ShowPrescription.setText(_translate("MainWindow", "Show Prescription"))
         self.P_SendMessage.setText(_translate("MainWindow", "Send Message"))
@@ -1450,6 +1975,7 @@ class Ui_MainWindow(object):
         item = self.P_AppointmentsTable.horizontalHeaderItem(4)
         item.setText(_translate("MainWindow", "Status"))
         self.P_ShowBedInfo.setText(_translate("MainWindow", "Show Bed Status"))
+        self.patient_edit_info_btn_2.setText(_translate("MainWindow", "Edit Info"))
         item = self.Lab_Table.horizontalHeaderItem(0)
         item.setText(_translate("MainWindow", "Test ID"))
         item = self.Lab_Table.horizontalHeaderItem(1)
@@ -1459,4 +1985,15 @@ class Ui_MainWindow(object):
         item = self.Lab_Table.horizontalHeaderItem(3)
         item.setText(_translate("MainWindow", "Result"))
         self.lab_send_result_btn.setText(_translate("MainWindow", "Set Diagnose Report"))
+        self.lab_exit_btn.setText(_translate("MainWindow", "Exit"))
+        self.lab_edit_info_btn_2.setText(_translate("MainWindow", "Edit Info"))
+        self.label_5.setText(_translate("MainWindow", "Edit Profile"))
+        self.edit_dob.setPlaceholderText(_translate("MainWindow", "Date of Birth"))
+        self.edit_address.setPlaceholderText(_translate("MainWindow", "Address"))
+        self.edit_zipcode.setPlaceholderText(_translate("MainWindow", "Postal Code"))
+        self.edit_sex.setPlaceholderText(_translate("MainWindow", "Sex"))
+        self.edit_height.setPlaceholderText(_translate("MainWindow", "Height"))
+        self.edit_weight.setPlaceholderText(_translate("MainWindow", "Weight"))
+        self.update_info_btn.setText(_translate("MainWindow", "Update"))
+        self.back_btn.setText(_translate("MainWindow", "Back"))
 

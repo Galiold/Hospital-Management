@@ -4,12 +4,14 @@ from PyQt5.QtWidgets import QTableWidgetItem
 # from PyQt5.uic.properties import QtGui
 import user_management
 
-# admin_db = user_management.database_admin()
-# admin_cursor = admin_db.cursor()
+admin_db = user_management.database_admin()
+admin_cursor = admin_db.cursor()
+
 
 
 def fill_table(table, list):
     # table.clear()
+    admin_db.commit()
     table.setRowCount(0)
     if len(list) > 0:
         print(list)
@@ -28,17 +30,12 @@ def clear_table(ui):
         ui.tableWidget.removeRow(0)
 
 
-def send_mail(id: object, password: object):
-    # print(0)
-    server = smtplib.SMTP('smtp.mail.yahoo.com', 587)
-    # print(1)
+def send_mail(email, id, password):
+    server = smtplib.SMTP('smtp.gmail.com', 587)
     server.starttls()
-    # print(2)
-    server.login("holmes_sh98@yahoo.com", "H0lmesofPast")
-    # print(3)
-    msg = "\n YOUR id is %s and your password is : %s ! \n" % (id, password)
-    server.sendmail("holmes_sh98@yahoo.com", "goldani.ali@aol.com", msg)
-    # print(4)
+    server.login("ali.goldani97@gmail.com", "13760000")
+    msg = "\nYour id is {%s} and your password is: {%s} ! \n" % (id, password)
+    server.sendmail("ali.goldani97@gmail.com", str(email), msg)
     server.quit()
 
 
@@ -50,7 +47,7 @@ def approve_doctor(sql, result, email, cursor, db):
     else:
         increment = int(last_id[0]) + 1
         id = 'd' + str(increment)
-    send_mail(id, result[3])
+    send_mail(email, id, result[5])
     val = (id, result[2], result[3], result[4], result[5])
     cursor.execute(sql, val)
     db.commit()
@@ -58,19 +55,19 @@ def approve_doctor(sql, result, email, cursor, db):
     db.commit()
 
 
-def approve_nurse(sql, result, email, cursor, db):
-    cursor.execute("select increment from Nurses order by ID desc ")
-    last_id = cursor.fetchone()
-    if last_id is None:
-        id = "n1"
-    else:
-        increment = int(last_id[0]) + 1
-        id = 'n' + str(increment)
-    val = (id, result[2], result[3], result[4], result[5])
-    cursor.execute(sql, val)
-    db.commit()
-    cursor.execute("delete from Registrations where email = %s", email)
-    db.commit()
+# def approve_nurse(sql, result, email, cursor, db):
+#     cursor.execute("select increment from Nurses order by ID desc ")
+#     last_id = cursor.fetchone()
+#     if last_id is None:
+#         id = "n1"
+#     else:
+#         increment = int(last_id[0]) + 1
+#         id = 'n' + str(increment)
+#     val = (id, result[2], result[3], result[4], result[5])
+#     cursor.execute(sql, val)
+#     db.commit()
+#     cursor.execute("delete from Registrations where email = %s", email)
+#     db.commit()
 
 
 def approve_patient(sql, result, email, cursor, db):
@@ -81,6 +78,7 @@ def approve_patient(sql, result, email, cursor, db):
     else:
         increment = int(last_id[0]) + 1
         id = 'p' + str(increment)
+    send_mail(email, id, result[5])
     val = (id, result[2], result[3], result[4], result[5])
     cursor.execute(sql, val)
     db.commit()
@@ -96,6 +94,7 @@ def approve_laboratory(sql, result, email, cursor, db):
     else:
         increment = int(last_id[0]) + 1
         id = 'l' + str(increment)
+    send_mail(email, id, result[5])
     val = (id, result[2], result[3], result[4], result[5])
     cursor.execute(sql, val)
     db.commit()
@@ -111,6 +110,7 @@ def approve_pharmacy(sql, result, email, cursor, db):
     else:
         increment = int(last_id[0]) + 1
         id = 'h' + str(increment)
+    send_mail(email, id, result[5])
     val = (id, result[2], result[3], result[4], result[5])
     cursor.execute(sql, val)
     db.commit()
@@ -128,6 +128,7 @@ def approve_accountant(sql, result, email, cursor, db):
     else:
         increment = int(last_id[0]) + 1
         id = 'a' + str(increment)
+    send_mail(email, id, result[5])
     val = (id, result[2], result[3], result[4], result[5])
     admin_cursor.execute(sql, val)
     admin_db.commit()
@@ -143,6 +144,7 @@ def approve_reception(sql, result, email, cursor, db):
     else:
         increment = int(last_id[0]) + 1
         id = 'r' + str(increment)
+    send_mail(email, id, result[5])
     val = (id, result[2], result[3], result[4], result[5])
     cursor.execute(sql, val)
     db.commit()
@@ -158,9 +160,9 @@ def approve(email, cursor, db):
     if result[1] == 'd':
         sql = "insert into Doctors (ID,Email,Phone,Username,Password) values (%s,%s,%s,%s,%s)"
         approve_doctor(sql, result, email, cursor, db)
-    elif result[1] == "n":
-        sql = "insert into Nurses (ID,Email,Phone,Username,Password) values (%s,%s,%s,%s,%s)"
-        approve_nurse(sql, result, email, cursor, db)
+    # elif result[1] == "n":
+    #     sql = "insert into Nurses (ID,Email,Phone,Username,Password) values (%s,%s,%s,%s,%s)"
+    #     approve_nurse(sql, result, email, cursor, db)
     elif result[1] == "p":
         sql = "insert into Patients (ID,Email,Phone,Username,Password) values (%s,%s,%s,%s,%s)"
         approve_patient(sql, result, email, cursor, db)

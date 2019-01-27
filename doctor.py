@@ -51,9 +51,9 @@ def request_lab_test():
     pass
 
 
-def send_message(content, receiver_id, cursor, db):
+def send_message(content, sender_id, receiver_id, cursor, db):
     sql = "insert into Messages (SenderID,ReceiverID,Text,Date) values (%s,%s,%s,%s)"
-    cursor.execute(sql, (dr_id, receiver_id, content, datetime.datetime.today().strftime('%Y-%m-%d')))
+    cursor.execute(sql, (sender_id, receiver_id, content, datetime.datetime.today().strftime('%Y-%m-%d')))
     db.commit()
     # else:
     # sql = "insert into Messages (SenderID,ReceiverID,Text,Date,reply) values (%s,%s,%s,%s,%s)"
@@ -84,13 +84,13 @@ def prescribe_drug(appointment_id, drug_name, cursor, db):
 
 def send_mail(email, msg):
     print(0)
-    server = smtplib.SMTP('smtp.mail.yahoo.com', 587)
+    server = smtplib.SMTP('smtp.gmail.com', 587)
     print(1)
     server.starttls()
     print(2)
-    server.login("holmes_sh98@yahoo.com", "H0lmesofPast")
+    server.login("ali.goldani97@gmail.com", "13760000")
     print(3)
-    server.sendmail("holmes_sh98@yahoo.com", str(email), str(msg))
+    server.sendmail("ali.goldani97@gmail.com", str(email), str(msg))
     print(4)
     server.quit()
 
